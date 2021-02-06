@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import '../style.css'
+import '../Styles/CCLogin.css'
+
 
 
 export default class CCLogin extends Component {
