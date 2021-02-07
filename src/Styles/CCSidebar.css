@@ -8171,8 +8171,10 @@
     width: 100%; }
   
   #sidebar {
-    position: absolute;
-    left: 0;
+    overflow: hidden;
+    position: fixed;
+    left:0;
+    width: 20%;
     min-width: 20%;
     min-height: 100vh;
     background: rgb(69, 92, 198);

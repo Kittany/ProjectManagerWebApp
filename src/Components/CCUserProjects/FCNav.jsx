@@ -13,14 +13,14 @@ const useStyles = makeStyles({
     fontFamily:"Segoe UI"
 },});
 
-export default function FCNav() {
+export default function FCNav(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   return (
     <BottomNavigation value={value} onChange={(event, newValue) => {setValue(newValue);}}  className={classes.root}>
-      <BottomNavigationAction label="Personal Notes" icon={<NoteIcon />}  className={classes.root} /> /*Add on click here*/
-      <BottomNavigationAction label="My Projects" icon={<AssignmentIcon /> } className={classes.root} />
+       <BottomNavigationAction label="Personal Notes" icon={<NoteIcon />}  className={classes.root}  onClick={e => props.btnChangeTabs(false)}/> {/*Add on click here*/ }
+      <BottomNavigationAction label="My Projects" icon={<AssignmentIcon /> } className={classes.root} onClick={e => props.btnChangeTabs(true)}/>
     </BottomNavigation>
   );
 }

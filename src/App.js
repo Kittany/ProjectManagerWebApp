@@ -6,8 +6,8 @@ import CCUserProjects from './Components/CCUserProjects/CCUserProjects.jsx'
 function App() {
   return (
     <div id="App">
-      <CCLogin />
-      {/* <CCSidebar/> */}
+      {/* <CCLogin /> */}
+      <CCSidebar/>
       <CCUserProjects/>
     </div>
   );
