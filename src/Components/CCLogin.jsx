@@ -1,6 +1,7 @@
-import React, { Component, useRef, useState } from 'react';
-import '../style.css';
-import { AuthProvider } from '../contexts/AuthContext';
+import React, { Component } from 'react'
+import '../Styles/CCLogin.css'
+
+
 
 export default class CCLogin extends Component {
     constructor(props) {
