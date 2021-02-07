@@ -29,7 +29,7 @@ btnChangeTabs = (bool) =>{
             <div id="CCUserProjects">
                 <div id="firstChild">
                 <FCNav btnChangeTabs={this.btnChangeTabs}/>
-                <Button id="btn" variant="contained" color="primary" disableElevation>Add note</Button>
+                {this.state.tabOpened === "Notes"?<Button id="btn" variant="contained" color="primary" disableElevation>Add note</Button>:null}
                 </div>
                 <div id="secondChild">
                     {this.state.tabOpened === "Notes"?<CCNotes user={this.props.user}/>:<CCProjects/>}
@@ -40,4 +40,3 @@ btnChangeTabs = (bool) =>{
 }
 
 
-/*onChange={(event, newValue) => {setValue("I changed"); }} */
