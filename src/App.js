@@ -1,12 +1,12 @@
 import './Styles/CCLogin.css';
 import CCLogin from './Components/CCLogin.jsx';
-import FCSidebar from './Components/FCSidebar.jsx';
+import CCSidebar from './Components/CCSidebar.jsx';
 
 function App() {
   return (
     <div id="App">
-      <CCLogin />
-      {/* <FCSidebar/> */}
+      {/* <CCLogin /> */}
+      <CCSidebar/>
     </div>
   );
 }

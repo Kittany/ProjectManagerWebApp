@@ -8176,7 +8176,9 @@
     color: #fff;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
-    transition: all 0.3s; }
+    transition: all 0.3s;
+    
+  }
     #sidebar.active {
       margin-left: -300px; }
     #sidebar .logo {
@@ -8187,7 +8189,10 @@
       #sidebar .logo span {
         display: block; }
     #sidebar ul.components {
-      padding: 0; }
+      padding: 0; 
+      cursor: pointer;
+      user-select: none;
+    }
     #sidebar ul li {
       font-size: 16px;
      } 
