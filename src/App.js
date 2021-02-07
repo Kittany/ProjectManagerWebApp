@@ -5,8 +5,8 @@ import CCSidebar from './Components/CCSidebar.jsx';
 function App() {
   return (
     <div id="App">
-      {/* <CCLogin /> */}
-      <CCSidebar/>
+      <CCLogin />
+      {/* <CCSidebar/> */}
     </div>
   );
 }
