@@ -1,0 +1,119 @@
+#CCUserProjects {
+    position: absolute;
+    right: 0;
+    background-color: rgb(238, 238, 238);
+    min-width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/*-----------------------------------Nav-----------------------------------*/
+
+#firstChild {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: serif;
+    background-color: #eee;
+}
+
+#firstChild input {
+    width: 30%;
+    height: 30%;
+    margin-right: 10px;
+}
+
+#btn {
+    font-family: "Poppins";
+    margin: 0;
+    height: 30%;
+}
+
+/*-----------------------------------Child Components Render-----------------------------------*/
+
+#secondChild {
+    width: 100%;
+    height: 90%;
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    justify-content: space-between;
+}
+
+/*-----------------------------------leftChild-----------------------------------*/
+
+#leftChild {
+    width: 30%;
+    height: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+#FCHotWindow {
+    background-color: white;
+    width: 100%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#userImg {
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+    height: 30%;
+    margin-top: 15px;
+}
+
+#userDetails {
+    width: 100%;
+    height: 65%;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+#userRole {
+    font-size: 16px;
+}
+
+#btnMessage {
+    width: 30%;
+    height: 15%;
+}
+
+#FCUserStatics {
+    width: 100%;
+    height: 43%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+/*-----------------------------------FCUserFullDetail-----------------------------------*/
+
+#rightChild {
+    width: 70%;
+    height: 100%;
+    padding: 15px;
+}
+
+#FCUserFullDetail {
+    width: 100%;
+    height: 100%;
+    background-color: rosybrown;
+}
