@@ -12,7 +12,10 @@ const useStyles = makeStyles({
     minWidth: "3%",
     minHeight:"30vh",
     margin:15,
-    position:"relative"
+    display:"flex",
+    flexDirection:"column",
+    justifyContent:"center",
+    textAlign:"center",
 
 
   },
@@ -23,32 +26,32 @@ const useStyles = makeStyles({
   },
   title: {
     fontSize: 14,
+    
   },
   pos: {
     marginBottom: 12,
   },
 });
 
-export default function FCNote() {
+export default function FCUser(props) {
   const classes = useStyles();
 
 
   return (
     <Card className={classes.root} variant="outlined">
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Date
-        </Typography>
+        <div id="imageContainer"><img className="img logo rounded-circle mb-5" style={{backgroundImage: 'url(KittyWithGlasses.jpg)'}} alt=""/> </div>
+      <CardContent style={{padding:0, width:"100%", height:"50%"}}>
         <Typography variant="h5" component="h2">
-          Title
+          Name
         </Typography>
-        <Typography variant="body2" component="p">
-          Descreption
+        <Typography variant="body2" component="p" color="gold" style={{fontWeight:"bold"}}>
+          Full Stack Developer
         </Typography>
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+          Member
+        </Typography>
+        <Button size="small" color="primary" variant="outlined" style={{marginTop: "5%"}}>Visit Profile</Button>
       </CardContent>
-      <CardActions>
-        <Button size="small" color="Secondary" style={{position:"absolute", bottom:"0", right:"0"}}>Delete</Button>
-      </CardActions>
     </Card>
   );
 }

@@ -1,0 +1,76 @@
+#CCAdminPage{
+    position: absolute;
+    right: 0;
+    background-color: rgb(238, 238, 238);
+    min-width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+/*-----------------------------------Nav-----------------------------------*/
+#firstChild{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: serif;  
+    background-color: #eee;
+}
+
+#btn{
+font-family: "Poppins";
+margin-bottom: 1%;
+margin-right: 3%;
+}
+
+
+/*-----------------------------------Child Components Render-----------------------------------*/
+#secondChild{
+    width: 100%;
+    height: 90%;
+    background-color: rgb(238, 238, 238);
+    transition: 5s ease-in;
+
+
+}
+
+
+#CCUsers{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    padding:30px;
+    overflow-y: scroll;
+      
+}
+
+#CCProjects{
+    height: 100%;
+    width: 100%;
+    padding:30px;
+    padding:30px;
+    overflow-y: scroll;
+}
+
+#imageContainer{
+    width: 100%;
+    height: 50%;
+}  
+
+img {
+    width: 30%;
+    height: 70%;
+    vertical-align: middle;
+    border-style: none; 
+    margin-top: 5%;
+}
+
+
