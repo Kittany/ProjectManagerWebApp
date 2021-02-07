@@ -16,11 +16,11 @@
 #firstChild {
     width: 100%;
     height: 10%;
+    background-color: #eee;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     font-family: serif;
-    background-color: #eee;
 }
 
 #firstChild input {
@@ -31,7 +31,6 @@
 
 #btn {
     font-family: "Poppins";
-    margin: 0;
     height: 30%;
 }
 
