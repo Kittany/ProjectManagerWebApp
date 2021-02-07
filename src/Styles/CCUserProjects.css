@@ -1,4 +1,4 @@
-#CCUserProfile {
+#CCUserProjects{
     position: absolute;
     right: 0;
     background-color: rgb(238, 238, 238);
@@ -10,31 +10,53 @@
     justify-content: center;
     overflow: hidden;
 }
-
 /*-----------------------------------Nav-----------------------------------*/
-
-#firstChild {
+#CCUserProjectsFirstChild{
     width: 100%;
     height: 10%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    font-family: serif;
+    font-family: serif;  
     background-color: #eee;
 }
 
-#btn {
-    font-family: "Poppins";
-    margin-bottom: 1%;
-    margin-right: 3%;
+#CCUserProjectsFirstChildBtn{
+margin-right: 3%;
+margin-top: 3%;
+font-family: "Poppins";
+align-self: center;
 }
 
-/*-----------------------------------Child Components Render-----------------------------------*/
 
-#secondChild {
+/*-----------------------------------Child Components Render-----------------------------------*/
+#secondChild{
     width: 100%;
     height: 90%;
     background-color: rgb(238, 238, 238);
     transition: 5s ease-in;
+
+
 }
 
+
+#CCUserNotes{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    padding:30px;
+    overflow-y: scroll;
+      
+}
+
+#CCProjects{
+    height: 100%;
+    width: 100%;
+    padding:30px;
+    padding:30px;
+    overflow-y: scroll;
+}

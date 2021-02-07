@@ -1,14 +1,14 @@
 import React from "react";
 import { Button } from "@material-ui/core";
+import '../../Styles/CCUserProfile.css'
 
 export default function FCHotWindow(props) {
   return (
       <div id="FCHotWindow">
         <img
-          id="userImg"
+          id="img"
           src="KittyWithGlasses.jpg"
           alt=""
-          style={{ width: "30%",height:"30%" }}
         ></img>
         <div id="userDetails">
           <h2 id="username">John Doe</h2>

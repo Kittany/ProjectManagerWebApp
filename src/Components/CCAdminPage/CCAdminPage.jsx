@@ -7,7 +7,7 @@ import CCProjects from './CCProjects.jsx'
 
 
 
-export default class CCUserProjects extends Component {
+export default class CCAdminPage extends Component {
   constructor(props){
       super(props);
       this.state = {
@@ -27,11 +27,11 @@ btnChangeTabs = (bool) =>{
     render() {
         return (
             <div id="CCAdminPage">
-                <div id="firstChild">
+                <div id="CCAdminPageFirstChild">
                 <FCNav btnChangeTabs={this.btnChangeTabs}/>
                 {this.state.tabOpened === "Users"?
-                <Button id="btn" variant="contained" color="primary" disableElevation>Create Account</Button>:
-                <Button id="btn" variant="contained" color="primary" disableElevation>Start A Project</Button>}
+                <Button id="CCAdminPageFirstChildBtn" variant="contained" color="primary" disableElevation>Create Account</Button>:
+                <Button id="CCAdminPageFirstChildBtn" variant="contained" color="primary" disableElevation>Start A Project</Button>}
                 </div>
                 <div id="secondChild">
                     {this.state.tabOpened === "Users"?<CCUsers users={this.props.users}/>:<CCProjects/>}

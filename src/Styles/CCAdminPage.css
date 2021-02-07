@@ -11,7 +11,7 @@
     overflow: hidden;
 }
 /*-----------------------------------Nav-----------------------------------*/
-#firstChild{
+#CCAdminPageFirstChild{
     width: 100%;
     height: 10%;
     display: flex;
@@ -21,10 +21,11 @@
     background-color: #eee;
 }
 
-#btn{
-font-family: "Poppins";
-margin-bottom: 1%;
+#CCAdminPageFirstChildBtn{
 margin-right: 3%;
+margin-top: 3%;
+font-family: "Poppins";
+align-self: center;
 }
 
 

@@ -27,9 +27,9 @@ btnChangeTabs = (bool) =>{
     render() {
         return (
             <div id="CCUserProjects">
-                <div id="firstChild">
+                <div id="CCUserProjectsFirstChild">
                 <FCNav btnChangeTabs={this.btnChangeTabs}/>
-                {this.state.tabOpened === "Notes"?<Button id="btn" variant="contained" color="primary" disableElevation>Add note</Button>:null}
+                {this.state.tabOpened === "Notes"?<Button id="CCUserProjectsFirstChildBtn" variant="contained" color="primary" disableElevation>Add note</Button>:null}
                 </div>
                 <div id="secondChild">
                     {this.state.tabOpened === "Notes"?<CCNotes user={this.props.user}/>:<CCProjects/>}

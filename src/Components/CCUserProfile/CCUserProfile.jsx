@@ -9,9 +9,9 @@ export default class CCUserProfile extends Component {
   render() {
     return (
       <div id="CCUserProfile">
-        <div id="firstChild">
+        <div id="CCUserProfileFirstChild">
           <input type="text" placeholder="Username"></input>
-          <Button id="btn" variant="contained" color="primary" disableElevation>
+          <Button id="CCUserProfileFirstChildBtn" variant="contained" color="primary" disableElevation>
             Search
           </Button>
         </div>
