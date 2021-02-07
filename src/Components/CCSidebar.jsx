@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../Styles/CCSidebar.css'
 
-export default class FCSidebar extends Component {
+export default class CCSidebar extends Component {
 constructor(props)
 {
   super(props);

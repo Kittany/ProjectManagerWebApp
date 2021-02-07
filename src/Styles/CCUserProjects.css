@@ -1,0 +1,34 @@
+#CCUserProjects{
+    position: absolute;
+    right: 0;
+    background-color: #eee;
+    min-width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#firstChild{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: serif;  
+}
+
+#btn{
+font-family: "Poppins";
+margin-bottom: 1%;
+margin-right: 3%;
+}
+
+#secondChild{
+    width: 100%;
+    height: 90%;
+    background-color: green;
+    
+}
+
