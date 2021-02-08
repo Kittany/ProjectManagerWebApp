@@ -17,7 +17,7 @@ export default class CCAccountSecurity extends Component {
                 </Form.Group>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Confirm Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="email" placeholder="Confirm email" />
                     <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
                     </Form.Text>
@@ -28,6 +28,7 @@ export default class CCAccountSecurity extends Component {
                     type="password"
                     id="inputPassword5"
                     aria-describedby="passwordHelpBlock"
+                    placeholder="Password"
                 />
                 <Form.Text id="passwordHelpBlock" muted style={{marginBottom:"2%"}}>
                     Your password must be 8-20 characters long, contain letters and numbers, and
@@ -40,11 +41,12 @@ export default class CCAccountSecurity extends Component {
                     type="confirmPassword"
                     id="inputPassword5"
                     aria-describedby="passwordHelpBlock"
+                    placeholder="Confirm Password"
                 />
                 <Form.Row  style={{width:"99%", marginLeft:"0.5%", display:"flex",justifyContent:"center",alignItems:"center",marginTop:"5%"}}>
-                <Form.Group as="Col" controlId="formGridZip">
+                <Form.Group as="Col" controlId="formGridZip"> 
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control />
+                <Form.Control placeholder="05X-XXXXXXX" />
                 </Form.Group>
                 </Form.Row>
                 <Form.Row className="row">
