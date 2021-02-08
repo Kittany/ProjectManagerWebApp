@@ -78,10 +78,10 @@
 }
 
 #userDetails {
+    margin-top: 5%;
     width: 100%;
     height: 65%;
     text-align: center;
-    font-weight: bold;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -103,6 +103,8 @@
     background-color: white;
     border-radius: 5px;
     font-family: "Poppins";
+    font-family: "poppins";
+    font-size: 20px;
 }
 
 /*----------------------------------- RightChild -----------------------------------*/
@@ -144,7 +146,7 @@
 #CCProjectsUserProfile {
     height: 60%;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 3.8%;
     overflow-y: scroll;
 }
 
