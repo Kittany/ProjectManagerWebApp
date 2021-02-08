@@ -3,7 +3,7 @@ import CCLogin from './Components/CCLogin.jsx';
 import CCSidebar from './Components/CCSidebar.jsx';
 import CCUserProjects from './Components/CCUserProjects/CCUserProjects.jsx'
 import CCAdminPage from './Components/CCAdminPage/CCAdminPage.jsx'
-import CCUserProfile from './Components/CCUserProfile/CCUserProfile.jsx'
+import CCUserProfile from './Components/CCUserProfile/CCUserProfile.jsx';
 
 function App() {
   return (
@@ -11,8 +11,8 @@ function App() {
       {/* <CCLogin /> */}
       <CCSidebar/>
       {/* <CCUserProjects/> */}
-      <CCAdminPage/>  
-      {/* <CCUserProfile/> */}
+      {/* <CCAdminPage/>   */}
+      <CCUserProfile/>
     </div>
   );
 }

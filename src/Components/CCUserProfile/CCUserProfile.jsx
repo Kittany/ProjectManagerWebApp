@@ -3,7 +3,8 @@ import "../../Styles/CCUserProfile.css";
 import { Button } from "@material-ui/core";
 import FCHotWindow from "./FCHotWindow";
 import FCUserStatics from "./FCUserStatics";
-import FCUserFullDetail from "./FCUserFullDetail";
+import FCUserFullDetails from "./FCUserFullDetails";
+import FCUserProfileProjects from "./FCUserProfileProjects";
 
 export default class CCUserProfile extends Component {
   render() {
@@ -16,13 +17,14 @@ export default class CCUserProfile extends Component {
           </Button>
         </div>
 
-        <div id="secondChild">
-          <div id="leftChild">
+        <div id="CCUserProfileSecondChild">
+          <div id="CCUserProfileSecondChildLeftChild">
           <FCHotWindow />
           <FCUserStatics/>
           </div>
-          <div id="rightChild">
-          <FCUserFullDetail/>
+          <div id="CCUserProfileSecondChildRightChild">
+            <FCUserFullDetails/>
+            <FCUserProfileProjects/>
           </div>
         </div>
       </div>
