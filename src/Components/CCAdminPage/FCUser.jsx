@@ -42,7 +42,7 @@ export default function FCUser(props) {
         <div id="imageContainer"><img className="img logo rounded-circle mb-5" style={{backgroundImage: 'url(KittyWithGlasses.jpg)'}} alt=""/> </div>
       <CardContent style={{padding:0, width:"100%", height:"50%"}}>
         <Typography variant="h5" component="h2">
-          Name
+          {props.user.username}
         </Typography>
         <Typography variant="body2" component="p" color="gold" style={{fontWeight:"bold"}}>
           Full Stack Developer
@@ -51,6 +51,7 @@ export default function FCUser(props) {
           Member
         </Typography>
         <Button size="small" color="primary" variant="outlined" style={{marginTop: "5%"}}>Visit Profile</Button>
+        <Button size="small" color="secondary" variant="outlined" style={{marginTop: "5%", marginLeft:"5%"}}>Assign</Button>
       </CardContent>
     </Card>
   );

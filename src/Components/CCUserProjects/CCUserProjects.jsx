@@ -2,8 +2,8 @@ import { Button } from '@material-ui/core'
 import React, { Component } from 'react'
 import '../../Styles/CCUserProjects.css'
 import FCNav from './FCNav.jsx'
-import CCNotes from './CCNotes'
-import CCProjects from './CCProjects'
+import CCNotes from './CCNotes.jsx'
+import FCProjects from './FCProjects.jsx'
 
 
 
@@ -23,7 +23,7 @@ btnChangeTabs = (bool) =>{
     this.setState({tabOpened:"Notes"})
 
 }
-
+//CCUserProjects
     render() {
         return (
             <div id="CCUserProjects">
@@ -31,8 +31,8 @@ btnChangeTabs = (bool) =>{
                 <FCNav btnChangeTabs={this.btnChangeTabs}/>
                 {this.state.tabOpened === "Notes"?<Button id="CCUserProjectsFirstChildBtn" variant="contained" color="primary" disableElevation>Add note</Button>:null}
                 </div>
-                <div id="secondChild">
-                    {this.state.tabOpened === "Notes"?<CCNotes user={this.props.user}/>:<CCProjects/>}
+                <div id="CCUserProjectsSecondChild">
+                    {this.state.tabOpened === "Notes"?<CCNotes user={this.props.user}/>:<FCProjects/>}
                 </div>
             </div>
         )

@@ -11,10 +11,10 @@ function App() {
     <div id="App">
       {/* <CCLogin /> */}
       <CCSidebar/>
-      {/* <CCUserProjects/> */}
+      <CCUserProjects/>
       {/* <CCAdminPage/>   */}
       {/* <CCUserProfile/> */}
-      <CCSettingsPage/>
+      {/* <CCSettingsPage/> */}
     </div>
   );
 }
