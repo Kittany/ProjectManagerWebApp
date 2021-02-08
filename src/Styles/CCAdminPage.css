@@ -31,9 +31,9 @@ align-self: center;
 
 
 /*-----------------------------------Child Components Render-----------------------------------*/
-#secondChild{
+#CCAdminPageSecondChild{
     width: 100%;
-    height: 60%;
+    height: 90%;
     background-color: rgb(238, 238, 238);
     transition: 5s ease-in;
 
