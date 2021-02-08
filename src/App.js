@@ -11,8 +11,8 @@ function App() {
       {/* <CCLogin /> */}
       <CCSidebar/>
       {/* <CCUserProjects/> */}
-      {/* <CCAdminPage/>   */}
-      <CCUserProfile/>
+      <CCAdminPage/>  
+      {/* <CCUserProfile/> */}
     </div>
   );
 }

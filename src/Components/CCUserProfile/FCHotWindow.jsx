@@ -13,7 +13,7 @@ export default function FCHotWindow(props) {
         <div id="userDetails">
           <h2 id="username">John Doe</h2>
           <p id="userRole">Full Stack Developer</p>
-          <p>Country, <span>Adress</span></p>
+          <p>Country, <span>Address</span></p>
           <Button id="btnMessage" variant="contained" color="primary" disableElevation>
             Message
           </Button>
