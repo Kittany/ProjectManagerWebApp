@@ -16,7 +16,7 @@ function App() {
       {/* <CCAdminPage/>   */}
       {/* <CCUserProfile/> */}
       {/* <CCSettingsPage/> */}
-      <CCProjectDetail/>
+      {/* <CCProjectDetail/> */}
     </div>
   );
 }

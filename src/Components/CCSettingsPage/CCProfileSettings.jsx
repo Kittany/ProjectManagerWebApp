@@ -12,7 +12,10 @@ export default class CCProfileSettings extends Component {
                 <Form.Row className="row">
                 <Form.Group as="Col" controlId="role" style={{width:"40%"}}>
                     <Form.Label>Role</Form.Label>
-                    <Form.Control type="text" placeholder="Role" />
+                    <Form.Control as="select" defaultValue="Choose...">
+                      <option>Choose...</option>
+                      <option>...</option>
+                    </Form.Control>
                   </Form.Group>
                </Form.Row>
                   <Form.Row className="row">
@@ -32,19 +35,17 @@ export default class CCProfileSettings extends Component {
                 </Form.Group>
                 </Form.Row>
                 <Form.Row className="row">
-                  <Form.Group as="Col" controlId="formGridCity">
-                    <Form.Label>City</Form.Label>
-                    <Form.Control />
-                  </Form.Group>
-
-                  <Form.Group as="Col" controlId="formGridState" style={{width:"30%"}}>
+                <Form.Group as="Col" controlId="formGridState" style={{width:"30%"}}>
                     <Form.Label>State</Form.Label>
                     <Form.Control as="select" defaultValue="Choose...">
                       <option>Choose...</option>
                       <option>...</option>
                     </Form.Control>
                   </Form.Group>
-
+                  <Form.Group as="Col" controlId="formGridCity">
+                    <Form.Label>City</Form.Label>
+                    <Form.Control />
+                  </Form.Group>
                   <Form.Group as="Col" controlId="formGridZip">
                     <Form.Label>Zip</Form.Label>
                     <Form.Control />
