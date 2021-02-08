@@ -4,6 +4,7 @@ import CCSidebar from './Components/CCSidebar.jsx';
 import CCUserProjects from './Components/CCUserProjects/CCUserProjects.jsx'
 import CCAdminPage from './Components/CCAdminPage/CCAdminPage.jsx'
 import CCUserProfile from './Components/CCUserProfile/CCUserProfile.jsx'
+import CCSettingsPage from './Components/CCSettingsPage/CCSettingsPage';
 
 function App() {
   return (
@@ -11,8 +12,9 @@ function App() {
       {/* <CCLogin /> */}
       <CCSidebar/>
       {/* <CCUserProjects/> */}
-      <CCAdminPage/>  
+      {/* <CCAdminPage/>   */}
       {/* <CCUserProfile/> */}
+      <CCSettingsPage/>
     </div>
   );
 }
