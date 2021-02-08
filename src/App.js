@@ -13,7 +13,7 @@ function App() {
       {/* <CCLogin /> */}
       <CCSidebar/>
       {/* <CCUserProjects/> */}
-      {/* <CCAdminPage/>   */}
+      <CCAdminPage/>  
       {/* <CCUserProfile/> */}
       {/* <CCSettingsPage/> */}
       {/* <CCProjectDetail/> */}

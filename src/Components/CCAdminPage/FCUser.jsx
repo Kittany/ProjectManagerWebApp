@@ -45,7 +45,7 @@ export default function FCUser(props) {
           {props.user.username}
         </Typography>
         <Typography variant="body2" component="p" color="gold" style={{fontWeight:"bold"}}>
-          Full Stack Developer
+          {props.user.role}
         </Typography>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Member
