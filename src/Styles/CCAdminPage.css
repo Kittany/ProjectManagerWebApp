@@ -53,14 +53,6 @@ align-self: center;
       
 }
 
-#CCProjects{
-    height: 100%;
-    width: 100%;
-    padding:30px;
-    padding:30px;
-    overflow-y: scroll;
-}
-
 #imageContainer{
     width: 100%;
     height: 50%;
@@ -73,5 +65,33 @@ img {
     border-style: none; 
     margin-top: 5%;
 }
+
+
+
+#ManageProjectsTab{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+#adminStatics{
+    height: 35%;
+    width: 100%;
+    padding:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#CCProjects{
+    height: 60%;
+    width: 100%;
+    padding:30px;
+    overflow-y: scroll;
+}
+
 
 

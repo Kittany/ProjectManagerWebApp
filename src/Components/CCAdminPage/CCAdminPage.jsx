@@ -34,7 +34,11 @@ btnChangeTabs = (bool) =>{
                 <Button id="CCAdminPageFirstChildBtn" variant="contained" color="primary" disableElevation>Start A Project</Button>}
                 </div>
                 <div id="secondChild">
-                    {this.state.tabOpened === "Users"?<CCUsers users={this.props.users}/>:<CCProjects/>}
+                    {this.state.tabOpened === "Users"?<CCUsers users={this.props.users}/>:
+                    <div id="ManageProjectsTab">
+                        <div id="adminStatics">Static diagram should be here</div>
+                        <CCProjects/>
+                        </div>}
                 </div>
             </div>
         )
