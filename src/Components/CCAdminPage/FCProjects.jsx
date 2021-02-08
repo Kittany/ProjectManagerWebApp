@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 
   },});
 
-//Don't add the button to the database, make a loop that adds it to each object in the code
+
 const rows = [
   {id:1111,project:"Skype",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
   {id:2222,project:"Facebook",tasks:"15/19",deadline:"10/20/2021",users:4,status:"opened",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
@@ -44,22 +44,22 @@ const rows = [
 
 ];
 
-export default function CCProjects() {
+export default function FCProjects() {
   const classes = useStyles();
 
   return (
-    <div id="CCProjects">
+    <div id="CCProjectsAdmin">
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center" style={{fontWeight:"bold"}}>ID</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold"}}>Project</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold"}}>Tasks</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold"}}>Deadline</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold"}}>Users</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold"}}>Status</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold"}}>Action</TableCell>
+            <TableCell align="center">ID</TableCell>
+            <TableCell align="center">Project</TableCell>
+            <TableCell align="center">Tasks</TableCell>
+            <TableCell align="center">Deadline</TableCell>
+            <TableCell align="center">Users</TableCell>
+            <TableCell align="center">Status</TableCell>
+            <TableCell align="center">Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

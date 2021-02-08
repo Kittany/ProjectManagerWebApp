@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import '../../Styles/CCAdminPage.css'
 import FCNav from './FCNav.jsx'
 import CCUsers from './CCUsers.jsx'
-import CCProjects from './CCProjects.jsx'
+import FCProjects from './FCProjects.jsx'
 
 
 
@@ -37,7 +37,7 @@ btnChangeTabs = (bool) =>{
                     {this.state.tabOpened === "Users"?<CCUsers users={this.props.users}/>:
                     <div id="ManageProjectsTab">
                         <div id="adminStatics">Static diagram should be here</div>
-                        <CCProjects/>
+                        <FCProjects/>
                         </div>}
                 </div>
             </div>
