@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import NoteIcon from '@material-ui/icons/Note';
-import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 
 const useStyles = makeStyles({
   root: {
@@ -19,8 +19,8 @@ export default function FCNav(props) {
 
   return (
     <BottomNavigation value={value} onChange={(event, newValue) => {setValue(newValue);}}  className={classes.root}>
-       <BottomNavigationAction label="Personal Notes" icon={<NoteIcon fontSize={"large"}/>}  className={classes.root}  onClick={e => props.btnChangeTabs(false)}/> {/*Add on click here*/ }
-      <BottomNavigationAction label="My Projects" icon={<InsertDriveFileIcon fontSize={"large"}/> } className={classes.root} onClick={e => props.btnChangeTabs(true)}/>
+       <BottomNavigationAction label="Project Notes" icon={<NoteIcon fontSize={"large"}/>}  className={classes.root}  onClick={e => props.btnChangeTabs(false)}/> {/*Add on click here*/ }
+      <BottomNavigationAction label="Tasks" icon={<AssignmentIcon fontSize={"large"}/> } className={classes.root} onClick={e => props.btnChangeTabs(true)}/>
     </BottomNavigation>
   );
 }
