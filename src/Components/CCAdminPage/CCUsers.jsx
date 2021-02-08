@@ -13,27 +13,27 @@ export default class CCUsers extends Component {
     
     }
 
- tempUsers = [{username:"3bbod"},{username:"meow"},{username:"lolo"}];
+ tempUsers = [{username:"3bbod",role:"FullStack"},{username:"meow",role:"Backend"},{username:"lolo",role:"Designer"}];
  
 
- changeFilter = (event) => {this.setState({filter:event.target.value})}
+ changeFilter = (event) => {this.setState({filter:event.target.value.toLowerCase()})}
 
 
     render() {
         return (
             <div id="CCUsers">
-                <input onChange={this.changeFilter}type="text" placeholder="Filter by username"></input>
+                <input onChange={this.changeFilter}type="text" placeholder="Search for a username / role"></input>
              <div id="UserGrid"> {/* this is temp, use map when ready*/}
-                {this.tempUsers.filter(user => user.username.indexOf(this.state.filter) != -1).map(user => <FCUser user={user}/>)}
+                {this.tempUsers.filter(user => user.username.toLowerCase().indexOf(this.state.filter) != -1 || user.role.toLowerCase().indexOf(this.state.filter) != -1).map(user => <FCUser user={user}/>)}
             </div>
             </div>
         )
     }
 }
 
-let test = "lol";
 
-test.indexOf()
+
+
 
 
 
