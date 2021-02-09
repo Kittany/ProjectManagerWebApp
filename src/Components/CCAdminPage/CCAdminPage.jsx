@@ -4,6 +4,7 @@ import '../../Styles/CCAdminPage.css'
 import FCNav from './FCNav.jsx'
 import CCUsers from './CCUsers.jsx'
 import FCProjects from './FCProjects.jsx'
+import FCCreateAccount from './CreateAccount/FCCreateAccount.jsx'
 
 
 
@@ -27,6 +28,7 @@ btnChangeTabs = (bool) =>{
     render() {
         return (
             <div id="CCAdminPage">
+                {/* <FCCreateAccount/> */}
                 <div id="CCAdminPageFirstChild">
                 <FCNav btnChangeTabs={this.btnChangeTabs}/>
                 {this.state.tabOpened === "Users"?

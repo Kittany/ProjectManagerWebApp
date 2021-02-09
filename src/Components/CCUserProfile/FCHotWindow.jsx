@@ -7,7 +7,7 @@ export default function FCHotWindow(props) {
       <div id="FCHotWindow">
         <img
           id="img"
-          src="KittyWithGlasses.jpg"
+          src={`Avatars/${2}.svg`}
           alt=""
         ></img>
         <div id="userDetails">

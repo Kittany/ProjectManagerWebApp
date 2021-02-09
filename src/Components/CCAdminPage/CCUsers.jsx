@@ -13,7 +13,7 @@ export default class CCUsers extends Component {
     
     }
 
- tempUsers = [{username:"3bbod",role:"FullStack"},{username:"meow",role:"Backend"},{username:"lolo",role:"Designer"}];
+ tempUsers = [{username:"3bbod",role:"FullStack",avatar:"1"},{username:"meow",role:"Backend",avatar:"2"},{username:"lolo",role:"Designer",avatar:"3"}];
  
 
  changeFilter = (event) => {this.setState({filter:event.target.value.toLowerCase()})}
