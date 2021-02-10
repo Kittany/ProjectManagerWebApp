@@ -12,18 +12,18 @@ import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import FCAccountSecuritySetup from './FCAccountSecuritySetup';
 import FCAccountLocationSetup from './FCAccountLocationSetup';
-import FCAccountAvatarSetup from './FCAccountAvatarSetup';
+import CCAccountAvatarSetup from './CCAccountAvatarSetup';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
   },
   layout: {
-    width: 'auto',
+    width: '100%',
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
-    [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-      width: 600,
+    [theme.breakpoints.up(550 + theme.spacing(2) * 2)]: {
+      width: 550,
       marginLeft: 'auto',
       marginRight: 'auto',
     },
@@ -46,7 +46,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
   },
   button: {
-    marginTop: theme.spacing(3),
     marginLeft: theme.spacing(1),
   },
 }));
@@ -60,7 +59,7 @@ function getStepContent(step) {
     case 1:
       return <FCAccountLocationSetup />;
     case 2:
-      return <FCAccountAvatarSetup />;
+      return <CCAccountAvatarSetup />;
     default:
       throw new Error('Unknown step');
   }
