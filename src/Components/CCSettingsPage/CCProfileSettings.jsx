@@ -11,7 +11,7 @@ export default class CCProfileSettings extends Component {
                 <Form id="form">
                 <Form.Row className="row">
                 <Form.Group as="Col" controlId="role" style={{width:"40%"}}>
-                    <Form.Label>Rolee</Form.Label>
+                    <Form.Label>Role</Form.Label>
                     <Form.Control as="select" defaultValue="Choose...">
                       <option>Choose...</option>
                       <option>...</option>
