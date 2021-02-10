@@ -10,9 +10,9 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import CCAccountSecuritySetup from './CCAccountSecuritySetup';
-import CCAccountLocationSetup from './CCAccountLocationSetup';
-import CCAccountAvatarSetup from './CCAccountAvatarSetup';
+import CCSetProjectDescreption from './CCSetProjectDescreption';
+import CCAddTasksToProject from './CCAddTasksToProject';
+import CCAddMembersToProject from './CCAddMembersToProject';
 import { Alert, AlertTitle } from '@material-ui/lab';
 
 const useStyles = makeStyles((theme) => ({
@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(6),
       marginBottom: theme.spacing(6),
       padding: theme.spacing(3),
+      
     },
   },
   stepper: {
@@ -51,22 +52,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const steps = ['Account Security', 'Location', 'Profile Picture'];
+const steps = ['Project Descreption', 'Set Tasks', 'Assign Users'];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <CCAccountSecuritySetup />;
+      return <CCSetProjectDescreption />;
     case 1:
-      return <CCAccountLocationSetup />;
+      return <CCAddTasksToProject />;
     case 2:
-      return <CCAccountAvatarSetup />;
+      return <CCAddMembersToProject />;
     default:
       throw new Error('Unknown step');
   }
 }
 
-export default function FCCreateAccount() {
+export default function FCCreateProject() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -79,19 +80,19 @@ export default function FCCreateAccount() {
   };
 
   return (
-    <div id="FCCreateAccount">
+    <div id="FCCreateProject">
       <div>
     <React.Fragment>
       <CssBaseline />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center" style={{fontFamily:"poppins"}}>
-            Create Account
+            Start A Project
           </Typography>
-          <Stepper activeStep={activeStep} className={classes.stepper} > 
+          <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map((label) => (
-              <Step key={label} >
-                <StepLabel >{label}</StepLabel>
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
               </Step>
             ))}
           </Stepper>
@@ -101,7 +102,7 @@ export default function FCCreateAccount() {
                 <Typography variant="h5" gutterBottom style={{fontFamily:"poppins"}}>
                 <Alert severity="success">
                 <AlertTitle>Success</AlertTitle>
-                Account Created Successfully
+                Project has been successfully started
                </Alert>
                   
                 </Typography>
@@ -120,10 +121,9 @@ export default function FCCreateAccount() {
                     variant="contained"
                     color="primary"
                     onClick={handleNext}
-                    className={classes.button}
-                    style={{fontFamily:"poppins"}}
+                    className={classes.button} style={{fontFamily:"poppins"}}
                   >
-                    {activeStep === steps.length - 1 ? 'Create Account' : 'Next'}
+                    {activeStep === steps.length - 1 ? 'Start Project' : 'Next'}
                   </Button>
                 </div>
               </React.Fragment>

@@ -133,7 +133,6 @@ user-select: none;
 
 }
 
-/*----------------------------------- AVATAR SETUP TAB -----------------------------------*/
 
 #CCAcountAvatarSetupGridContainer{
 display: flex;
@@ -158,3 +157,58 @@ flex-direction: column;
 cursor: pointer;
 
 }
+
+
+
+/*----------------------------------- CREATE PROJECT -----------------------------------*/
+
+#FCCreateProject{
+    font-family: "poppins";
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:fixed;
+    left: 0;
+    z-index: 1;
+    background: transparent;
+    backdrop-filter: blur(4px);
+    
+}
+
+#FCCreateProject div{
+border-radius: 5px;
+user-select: none;
+
+}
+
+
+
+#CCAddMembersToProject{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+#CCAddMembersToProject input{
+
+    margin-right: 3%;
+    margin-top: 3%;
+    font-family: "Poppins";
+    width: 70%;
+    margin-bottom: 5%;
+}
+
+#CCAddMembersToProjectUserGrid{
+    width: 100%;
+    overflow-y: scroll;
+    display: inline-block;
+    height: 40vh;
+}
+
