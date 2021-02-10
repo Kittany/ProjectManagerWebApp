@@ -22,8 +22,6 @@ export default class CCAccountAvatarSetup extends Component {
 
 }
  
- 
- 
   render() {
     return ( 
       <React.Fragment>
