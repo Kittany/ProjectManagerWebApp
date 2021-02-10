@@ -58,10 +58,6 @@ export default class CCProfileSettings extends Component {
                </Form.Row>
               </Form>
 
-
-
-
-                    
                 </div>
             </div>
         )

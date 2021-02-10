@@ -38,9 +38,9 @@ export default function FCUser(props) {
 
 
   return (
-    <Card className={classes.root} variant="outlined">
-        <div id="imageContainer"><img className="img logo rounded-circle mb-5" style={{backgroundImage: 'url(KittyWithGlasses.jpg)'}} alt=""/> </div>
-      <CardContent style={{padding:0, width:"100%", height:"50%"}}>
+    <Card className={classes.root} variant="outlined" style={{padding:"2%"}}>
+        <div id="imageContainer" className="img logo rounded-circle mb-5" style={{backgroundImage: `url(Avatars/${props.user.avatar}.svg)`}} alt=""></div>
+      <CardContent style={{padding:0, width:"100%", height:"50%",marginBottom:"1%",userSelect:"none"}}>
         <Typography variant="h5" component="h2">
           {props.user.username}
         </Typography>

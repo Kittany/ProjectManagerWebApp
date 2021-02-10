@@ -1,3 +1,4 @@
+import { Button } from '@material-ui/core';
 import React, { Component } from 'react'
 import '../Styles/CCSidebar.css'
 
@@ -15,11 +16,15 @@ changeSelected = (tabName) =>{
 this.setState({selected:tabName})
 }
 
-  render() {
+  render(props) {
     return (
       <nav id="sidebar">
-      <div className="p-4 pt-5">
-        <img className="img logo rounded-circle mb-5" style={{backgroundImage: 'url(KittyWithGlasses.jpg)'}} alt=""/> 
+      <div className="p-4 pt-5" id="sidebarTop">
+      <div id="userInfo">
+      <img className="img logo rounded-circle mb-3" src="Avatars/1.svg" width="100%" height="100%" alt=""/> 
+      <p style={{fontWeight:"bold", fontSize:"25px"}}>{this.props.user.username}</p>
+      <p style={{color:"goldenrod", fontSize:"20px"}}>{this.props.user.status}</p>     
+      </div>
         <ul className="list-unstyled components mb-5">
           <li onClick={e => this.changeSelected("My Projects")} className={this.state.selected === "My Projects"?"active":null}>
             <a>My Projects</a>
@@ -37,6 +42,7 @@ this.setState({selected:tabName})
             <a>Account Settings</a>
           </li>
         </ul>
+        <div id="sidebarBottom"><Button  variant="contained" color="secondary" disableElevation style={{fontFamily:"poppins",fontWeight:"bold"}}>Signout</Button></div>
       </div>
     </nav>
     )

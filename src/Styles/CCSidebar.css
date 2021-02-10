@@ -8182,15 +8182,44 @@
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    
+    font-family: "poppins";
   }
+
+  #sidebarTop{
+   width: 100%;
+   height: 60%;
+   }
+
+   #userInfo{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     margin-bottom: 10%;
+   }
+
+   #userInfo p{
+    margin: 0;
+  }
+
+   #sidebarBottom{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   }
+
+
     #sidebar.active {
       margin-left: -300px; }
     #sidebar .logo {
       display: block;
       width: 40%;
-      height: 12vh;
-      margin: 0 auto; }
+      height: 15vh;
+      margin: 0 auto; 
+    }
+
+
+
       #sidebar .logo span {
         display: block; }
     #sidebar ul.components {
