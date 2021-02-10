@@ -28,7 +28,7 @@ btnChangeTabs = (bool) =>{
     render() {
         return (
             <div id="CCAdminPage">
-                {/* <FCCreateAccount/> */}
+                <FCCreateAccount/>
                 <div id="CCAdminPageFirstChild">
                 <FCNav btnChangeTabs={this.btnChangeTabs}/>
                 {this.state.tabOpened === "Users"?

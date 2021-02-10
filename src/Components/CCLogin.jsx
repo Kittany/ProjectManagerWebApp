@@ -14,20 +14,20 @@ export default class CCLogin extends Component {
     };
   }
 
-  componentDidMount = ()=> {
+  componentDidMount = () => {
     this.authListener();
   }
 
   authListener = () => {
     fire.auth().onAuthStateChanged((user) => {
-        console.log(user);
+      console.log(user);
       if (user) this.setState({ user });
       else {
         this.setState({ user: null });
       }
     });
   };
-  
+
   btnLogin = (e) => {
     e.preventDefault();
     fire
