@@ -68,7 +68,7 @@ deleteTask = (value) =>{
             placeholder="Task"
             value={this.state.taskInput}
             onChange={this.changeTaskInput}
-            style={{width:"84%"}}
+            style={{width:"80%"}}
           />
           <Button onClick={this.addTask} variant="outlined" color="secondary" style={{fontFamily:"poppins",marginLeft:"3%",height:"30%",width:"10%"}}>Add</Button>
         </Grid>

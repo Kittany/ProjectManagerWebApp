@@ -4,7 +4,7 @@ import '../../Styles/CCUserProjects.css'
 import FCNav from './FCNav.jsx'
 import CCNotes from './CCNotes.jsx'
 import FCProjects from './FCProjects.jsx'
-
+import FCManageProject from '../CCManageProject/FCManageProject.jsx'
 
 
 export default class CCUserProjects extends Component {
@@ -27,6 +27,8 @@ btnChangeTabs = (bool) =>{
     render() {
         return (
             <div id="CCUserProjects">
+               {/* <FCManageProject/> */}
+                               
                 <div id="CCUserProjectsFirstChild">
                 <FCNav btnChangeTabs={this.btnChangeTabs}/>
                 {this.state.tabOpened === "Notes"?<Button id="CCUserProjectsFirstChildBtn" variant="contained" color="primary" disableElevation>Add note</Button>:null}
