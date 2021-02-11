@@ -2,7 +2,8 @@
     width: 80%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
     position: absolute;
     right: 0;
 }
@@ -10,7 +11,15 @@
 .CCChatFirstChild {
     width: 25%;
     height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
     /* background-color: aqua; */
+}
+
+#CCUsersChatList {
+    width: 100%;
 }
 
 .CCChatFirstSecond {
@@ -30,15 +39,148 @@
 #CCChatGUIFirstChild {
     width: 100%;
     height: 10%;
-    background-color: blue;
-    display:flex;
-    justify-content:start;
-    align-items:center;
+    background-color: rgb(69, 92, 198);
+    display: flex;
+    justify-content: start;
+    align-items: center;
     padding-left: 2%;
 }
 
 #CCChatGUISecondChild {
     width: 100%;
-    height: 88%;
-    background-color:red
+    height: 84%;
+    display: block;
+    overflow: scroll;
+    overflow-x: hidden;
+    scroll-padding-block-end: 100%;
+}
+
+/* Chat containers */
+
+.ChatContainer {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* Darker chat container */
+
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
+
+/* Clear floats */
+
+.ChatContainer::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Style images */
+
+.ChatContainer img {
+    float: left;
+    height: 10%;
+    width: 7%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+/* Style the right image */
+
+.ChatContainer img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right: 0;
+}
+
+/* Style time text */
+
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+/* Style time text */
+
+.time-left {
+    float: left;
+    color: #999;
+}
+
+.chat__form {
+    background-color: #e0e0e0;
+    position: relative;
+    width: 100%;
+    height: 5%;
+}
+
+#chat__form {
+    width: 100%;
+    height: 100%;
+}
+
+.chat__form form {
+    max-width: 800px;
+    margin: 0 auto;
+    height: 10%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.chat__form input {
+    height: 100%;
+    font-size: 16px;
+    min-width: 90%;
+    padding-left: 15px;
+    background-color: #fff;
+    border-radius: 15px;
+    border: none;
+}
+
+.chat__form .btnSendMessage {
+    width: 10%;
+    height: 100%;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: poppins;
+    font-weight: bold;
+}
+
+.chat__form .btnSendMessage:hover {
+    font-weight: bold;
+}
+
+#chatFormLeftSideDiv {
+    width: 90%;
+    height: inherit;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#chatFormRightSideDiv {
+    width: 10%;
+    height: inherit;
+    justify-content: flex-end;
+}
+
+#CCChatGUISecondChild div h3 {
+    margin: 0;
+}
+
+#CCChatGUISecondChild div p{
+    margin: 0;
+    font-family: poppins;
 }
