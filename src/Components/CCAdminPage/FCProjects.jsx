@@ -53,13 +53,13 @@ export default function FCProjects() {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">ID</TableCell>
-            <TableCell align="center">Project</TableCell>
-            <TableCell align="center">Tasks</TableCell>
-            <TableCell align="center">Deadline</TableCell>
-            <TableCell align="center">Users</TableCell>
-            <TableCell align="center">Status</TableCell>
-            <TableCell align="center">Action</TableCell>
+            <TableCell style={{fontWeight:"bold"}} align="center" >ID</TableCell>
+            <TableCell style={{fontWeight:"bold"}} align="center">Project</TableCell>
+            <TableCell style={{fontWeight:"bold"}} align="center">Tasks</TableCell>
+            <TableCell style={{fontWeight:"bold"}} align="center">Deadline</TableCell>
+            <TableCell style={{fontWeight:"bold"}} align="center">Users</TableCell>
+            <TableCell style={{fontWeight:"bold"}} align="center">Status</TableCell>
+            <TableCell style={{fontWeight:"bold"}} align="center">Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

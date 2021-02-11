@@ -204,7 +204,7 @@ user-select: none;
     margin-bottom: 5%;
 }
 
-#CCAddMembersToProjectUserGrid{
+.CCAddMembersToProjectUserGrid{
     width: 100%;
     overflow-y: scroll;
     display: inline-block;

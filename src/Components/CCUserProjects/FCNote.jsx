@@ -29,7 +29,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function FCNote() {
+export default function FCNote(props) {
   const classes = useStyles();
 
 
@@ -37,13 +37,13 @@ export default function FCNote() {
     <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Date
+          {props.note.date}
         </Typography>
         <Typography variant="h5" component="h2">
-          Title
+        {props.note.titleInput}
         </Typography>
         <Typography variant="body2" component="p">
-          Descreption
+        {props.note.descreptionInput}
         </Typography>
       </CardContent>
       <CardActions>

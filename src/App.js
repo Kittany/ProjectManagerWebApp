@@ -5,8 +5,6 @@ import CCUserProjects from './Components/CCUserProjects/CCUserProjects.jsx'
 import CCAdminPage from './Components/CCAdminPage/CCAdminPage.jsx'
 import CCUserProfile from './Components/CCUserProfile/CCUserProfile.jsx'
 import CCSettingsPage from './Components/CCSettingsPage/CCSettingsPage';
-import CCProjectDetail from './Components/CCProjectDetail/CCProjectDetail';
-import CCChat from './Components/CCChat/CCChat';
 
 
 function App() {
@@ -19,7 +17,7 @@ function App() {
       {/* <CCAdminPage/>   */}
       {/* <CCUserProfile/> */}
       {/* <CCSettingsPage/> */}
-      {/* <CCProjectDetail/> */}
+
     </div>
   );
 }

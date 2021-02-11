@@ -6,7 +6,7 @@ import CCUsers from './CCUsers.jsx'
 import FCProjects from './FCProjects.jsx'
 import FCCreateAccount from './CreateAccount/FCCreateAccount.jsx'
 import FCCreateProject from './CreateProject/FCCreateProject.jsx'
-
+import FCManageProject from '../CCManageProject/FCManageProject.jsx'
 
 export default class CCAdminPage extends Component {
   constructor(props){
@@ -30,6 +30,7 @@ btnChangeTabs = (bool) =>{
             <div id="CCAdminPage">
                 {/* <FCCreateAccount/> */}
                 {/* <FCCreateProject/> */}
+                {/* <FCManageProject/> */}
                 <div id="CCAdminPageFirstChild">
                 <FCNav btnChangeTabs={this.btnChangeTabs}/>
                 {this.state.tabOpened === "Users"?
