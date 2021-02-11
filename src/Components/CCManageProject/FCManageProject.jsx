@@ -37,7 +37,7 @@ export default function FCCreateProject(props) {
   const steps = ['Descreption', 'Tasks & Notes'];
 
   //replace true with props.user.isAdmin
-  if(true)
+  if(false)
      steps.push('Users')
 
   const [activeStep, setActiveStep] = React.useState(0);

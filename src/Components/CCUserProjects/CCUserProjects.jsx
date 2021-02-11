@@ -4,7 +4,7 @@ import '../../Styles/CCUserProjects.css'
 import FCNav from './FCNav.jsx'
 import CCNotes from './CCNotes.jsx'
 import FCProjects from './FCProjects.jsx'
-import CCManageProject from '../CCManageProject/FCManageProject.jsx'
+import FCManageProject from '../CCManageProject/FCManageProject.jsx'
 import CCCreateNoteWindow from './CreateNote/CCCreateNoteWindow.jsx'
 
 export default class CCUserProjects extends Component {
@@ -46,7 +46,7 @@ closeWindow = (event) => {
     render() {
         return (
             <div id="CCUserProjects">
-               {/* <CCManageProject/> */}
+               <FCManageProject/>
                 {this.state.createNoteIsOpen && <CCCreateNoteWindow closeWindow={this.closeWindow} sendNoteData={this.getNoteData}/> }
                 <div id="CCUserProjectsFirstChild">
                 <FCNav btnChangeTabs={this.btnChangeTabs}/>
