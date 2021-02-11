@@ -27,7 +27,7 @@ export default class CCSettingsPage extends Component {
                 <Button variant="contained" color="primary" disableElevation style={{marginBottom:"10px",fontFamily: "poppins",width: "100%",height: "6%"}}>Dark Theme (might remove)</Button>
                 </div>
                 <div id="CCSettingsPageSecondChild">
-                    {this.state.tabOpened === "ProfileSettings"?<CCProfileSettings user="change to to current user on line" />:<CCAccountSecurity/>}
+                    {this.state.tabOpened === "ProfileSettings"?<CCProfileSettings user="change to to current user online" />:<CCAccountSecurity/>}
                 </div>
             </div>
         )
