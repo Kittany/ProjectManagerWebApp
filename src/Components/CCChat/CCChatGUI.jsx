@@ -35,7 +35,7 @@ export default class CCChatGUI extends Component {
     return (
       <div id="CCChatGUI">
         <div id="CCChatGUIFirstChild">
-          <h3 style={{color:"white", fontWeight:"bold"}}>{this.state.currentUser}</h3>
+          <h3 style={{color:"black", fontWeight:"bold"}}>Chat</h3>
         </div>
         <div ref={this.chatContainer} id="CCChatGUISecondChild">
           <div className="ChatContainer">

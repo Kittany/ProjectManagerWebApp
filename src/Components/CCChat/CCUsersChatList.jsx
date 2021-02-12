@@ -1,99 +1,55 @@
-import React, { Component } from 'react'
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import Divider from "@material-ui/core/Divider";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
-import Typography from "@material-ui/core/Typography";
+import React, { Component, useRef } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 export default class CCUsersChatList extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      users:["3bbod","ahmad","fofo","koko","momo"],
+      searchNameInput: ""
+    }
+  }
+
+  inputHandler = async (e) => {
+    this.setState(await { searchNameInput:e.target.value });
+  };
+
+
+
   render() {
-    let classes = makeStyles((theme) => ({
-      root: {
-        width: "100%",
-        maxWidth: "36ch",
-        backgroundColor: theme.palette.background.paper,
-      },
-      inline: {
-        display: "inline",
-      },
-    }));
     return (
       <div id="CCUsersChatList">
-
-        <List className={classes.root}>
-          <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-            </ListItemAvatar>
-            <ListItemText
-              primary="3bbod"
-              secondary={
-                <React.Fragment>
-                  <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                  >
-                    FullStack
-                      </Typography>
-                </React.Fragment>
-              }
-            />
-          </ListItem>
-          <Divider variant="inset" component="li" />
-          <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-              <Avatar
-                alt="Travis Howard"
-                src="/static/images/avatar/2.jpg"
-              />
-            </ListItemAvatar>
-            <ListItemText
-              primary="Sharef hehehehe"
-              secondary={
-                <React.Fragment>
-                  <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                  >
-                    Backend
-                      </Typography>
-                </React.Fragment>
-              }
-            />
-          </ListItem>
-          <Divider variant="inset" component="li" />
-          <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-              <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-            </ListItemAvatar>
-            <ListItemText
-              primary="abonader"
-              secondary={
-                <React.Fragment>
-                  <Typography
-                    component="span"
-                    variant="body2"
-                    className={classes.inline}
-                    color="textPrimary"
-                  >
-                    FullStack
-                      </Typography>
-                </React.Fragment>
-              }
-            />
-
-
-
-
-
-          </ListItem>
-        </List>
+        <div
+          style={{
+            width: "100%",
+            height: "7%",
+            marginTop: "8%",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <h4
+            style={{
+              paddingLeft: "3%",
+              color: "black",
+              fontWeight: "bold",
+              textAlign: "center",
+            }}
+          >
+            Search&nbsp;{" "}
+          </h4>
+          <input
+            id="chatUserSearchInput"
+            style={{
+              width: "90%",
+              marginLeft: "5%",
+            }}
+            type="text"
+            onChange={this.inputHandler}
+          />
+        </div>
+        <div style={{ width: "100%", height: "100%", overflowY:"scroll",display:"block",marginTop:"5%"}}>
+          {this.state.users.filter(user => user.toLowerCase().substring(0, this.state.searchNameInput.length) == this.state.searchNameInput).map(user => <p>{user}</p> )}
+      </div>
       </div>
     );
   }
