@@ -17,7 +17,9 @@ export default class CCManageMembersInProject extends Component {
         }
     
     }
+ 
 
+  //This basically displays the users who match the search input
  changeFilter = (event) => {this.setState({filter:event.target.value.toLowerCase()})}
   
  addUserToProject = (dataFromChild) => 
@@ -48,6 +50,7 @@ export default class CCManageMembersInProject extends Component {
              <div id="CCManageMembersInProjectChild">
 
              <div className="CCManageMembersInProjectUserGrid"> 
+             {/*this basically renders the users based on what's written in the filter input */}
              {this.state.users.filter(user => user.username.toLowerCase().indexOf(this.state.filter) != -1 || user.role.toLowerCase().indexOf(this.state.filter) != -1).map(user => <FCSmallUser user={user} chosenUsersForProject={this.state.chosenUsersForProject} addUserToProject={this.addUserToProject}/>)} 
              </div>
 

@@ -81,11 +81,11 @@ export default function FCCreateProject() {
 
   return (
     <div id="FCCreateProject">
-      <div>
+      <div id="FCCreateProjectChild">
     <React.Fragment>
       <CssBaseline />
       <main className={classes.layout}>
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper} style={{margin:0}}>
           <Typography component="h1" variant="h4" align="center" style={{fontFamily:"poppins"}}>
             Start A Project
           </Typography>

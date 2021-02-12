@@ -34,9 +34,6 @@ export default class CCManageTasksInProject extends Component {
     this.state ={
       taskInput:"",
       noteInput:"",
-      tasks:[],
-      notes:[],
-      counter:0
     }
   }
 
@@ -47,32 +44,22 @@ this.setState({taskInput:event.target.value})
 }
 
 addTask = () => {
-  if (this.state.taskInput.trim() == "" || this.state.tasks.filter(task => task == this.state.taskInput).length == 1 || this.state.taskInput.length > 30)
-      return;
-
-this.setState({tasks:[...this.state.tasks,this.state.taskInput], taskInput:""})
+this.props.updateProjectData(this.state.taskInput,"addTask")
+this.setState({taskInput:""})
 }
 
-deleteTask = (value) =>{
-  this.setState({tasks:this.state.tasks.filter(task => task != value)});
-}
 
 
 //Notes
-
 changeNoteInput = (event) =>{
   this.setState({noteInput:event.target.value})
   }
   
   addNote = () => {
-    if (this.state.noteInput.trim() == "" || this.state.notes.filter(note => note == this.state.noteInput).length == 1 || this.state.noteInput.length > 30)
-        return;
-  
-  this.setState({notes:[...this.state.notes,this.state.noteInput], noteInput:""})
-  }
-  
-  deleteNote = (value) =>{
-    this.setState({notes:this.state.notes.filter(note => note != value)});
+  this.props.updateProjectData(this.state.noteInput,"addNote")
+  this.setState({noteInput:""})
+
+
   }
 
 
@@ -100,9 +87,9 @@ changeNoteInput = (event) =>{
         </Grid>
 
       <List style={{display:"block",overflowY:"scroll",height:"95%",width:"100%",marginBottom:"1%",marginTop:"2%",padding:15}}>
-      {this.state.tasks.map(task => <>
+      {this.props.projectManagingAtTheMoment.tasks.map(task => <>
       <ListItem alignItems="flex-start" style={{marginBottom:"1%",backgroundColor:"rgb(238, 238, 238)"}}><p style={{width:"90%", margin:0,padding:0,height:"3VH", fontSize:"15px",display:"block"}}>{task}</p>
-      <Button onClick={e => this.deleteTask(task)} variant="outlined" color="secondary" style={{fontFamily:"poppins",width:"10%", padding:"0"}}>X</Button>
+      <Button onClick={e => this.props.updateProjectData(task,"delTask")} variant="outlined" color="secondary" style={{fontFamily:"poppins",width:"10%", padding:"0"}}>X</Button>
       <Divider  component="li" />
       </ListItem></>)}
       </List>
@@ -125,9 +112,9 @@ changeNoteInput = (event) =>{
         </Grid>
 
       <List style={{display:"block",overflowY:"scroll",height:"95%",width:"100%",marginBottom:"1%",marginTop:"2%",padding:15}}>
-      {this.state.notes.map(note => <>
+      {this.props.projectManagingAtTheMoment.notes.map(note => <>
       <ListItem alignItems="flex-start" style={{marginBottom:"1%",backgroundColor:"rgb(238, 238, 238)"}}><p style={{width:"90%", margin:0,padding:0,height:"3VH", fontSize:"15px",display:"block"}}>{note}</p>
-      <Button onClick={e => this.deleteNote(note)} variant="outlined" color="secondary" style={{fontFamily:"poppins",width:"10%", padding:"0"}}>X</Button>
+      <Button onClick={e => this.props.updateProjectData(note,"delNote")} variant="outlined" color="secondary" style={{fontFamily:"poppins",width:"10%", padding:"0"}}>X</Button>
       <Divider  component="li" />
       </ListItem></>)}
       </List>

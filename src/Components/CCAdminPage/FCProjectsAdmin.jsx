@@ -17,37 +17,41 @@ const useStyles = makeStyles({
 
 
 
-export default function FCProjects(props) {
+
+export default function FCProjectsAdmin(props) {
   const classes = useStyles();
 
-//Add manage button for each project                                    //Change false to user.isAdmin
- props.userProjects.forEach(project => project.action = 
- <Button onClick={e => props.openProjectManagement(project)}   disabled={project.status === "Closed" && !false}  variant="outlined" color="primary" disableElevation>Manage</Button>)
+
+//Add manage button for each project                                   
+props.allProjects.forEach(project => project.action = 
+  <Button onClick={e => props.openProjectManageWindow(project)}   variant="outlined" color="primary" disableElevation>Manage</Button>)
+
+
 
 
   return (
-    <div id="CCProjects">
+    <div id="CCProjectsAdmin">
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center" style={{fontWeight:"bold"}}>ID</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold"}}>Project</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold"}}>Tasks</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold"}}>Deadline</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold"}}>Users</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold"}}>Status</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold"}}>Action</TableCell>
+            <TableCell style={{fontWeight:"bold"}} align="center" >ID</TableCell>
+            <TableCell style={{fontWeight:"bold"}} align="center">Project</TableCell>
+            <TableCell style={{fontWeight:"bold"}} align="center">Tasks</TableCell>
+            <TableCell style={{fontWeight:"bold"}} align="center">Deadline</TableCell>
+            <TableCell style={{fontWeight:"bold"}} align="center">Users</TableCell>
+            <TableCell style={{fontWeight:"bold"}} align="center">Status</TableCell>
+            <TableCell style={{fontWeight:"bold"}} align="center">Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.userProjects.map((project) => (
+          {props.allProjects.map((project) => (
             <TableRow key={project.name}>
               <TableCell component="th" scope="row" align="center">
                 {project.id}
               </TableCell>
               <TableCell align="center">{project.name}</TableCell>
-              <TableCell align="center">{project.tasks}</TableCell>
+              <TableCell align="center">{project.tasks.length}</TableCell>
               <TableCell align="center">{project.deadline}</TableCell>
               <TableCell align="center">{project.users.length}</TableCell>
               <TableCell align="center">{project.status?"Open":"Closed"}</TableCell>

@@ -17,12 +17,10 @@ export default class CCUserProjects extends Component {
           projectManagingAtTheMoment:"",
           notes:[], // this.props.user.notes, this array should begin with user notes by default (add it after you finish the database)
           userProjects:[
-            {id:1111,name:"Skype",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:"Open"},
-            {id:2222,name:"Facebook",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:"Open"},
-            {id:3333,name:"Youtube",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:"Closed"},
-            {id:4444,name:"Google",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:"Closed"}
-
-
+            {id:1111,name:"Skype",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:true},
+            {id:2222,name:"Facebook",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:true},
+            {id:3333,name:"Youtube",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:false},
+            {id:4444,name:"Google",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:false}
 
           ] // change to this.props.user.projects
       
