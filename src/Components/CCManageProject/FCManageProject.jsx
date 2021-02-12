@@ -13,27 +13,16 @@ import Typography from '@material-ui/core/Typography';
 import CCManageProjectDescreption from './CCManageProjectDescreption';
 import CCManageTasksInProject from './CCManageTasksInProject';
 import CCManageMembersInProject from './CCManageMembersInProject';
-import { Alert, AlertTitle } from '@material-ui/lab';
 
 
 
 
 
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <CCManageProjectDescreption />;
-    case 1:
-      return <CCManageTasksInProject />;
-    case 2:
-      return <CCManageMembersInProject />;
-    default:
-      throw new Error('Unknown step');
-  }
-}
 
-export default function FCCreateProject(props) {
+
+
+export default function FCManageProject(props) {
   const steps = ['Descreption', 'Tasks & Notes'];
 
   //replace true with props.user.isAdmin
@@ -50,8 +39,23 @@ export default function FCCreateProject(props) {
     setActiveStep(activeStep - 1);
   };
 
+
+  const getStepContent = (step) => {
+    switch (step) {
+      case 0:
+        return <CCManageProjectDescreption projectManagingAtTheMoment={props.projectManagingAtTheMoment} />;
+      case 1:
+        return <CCManageTasksInProject projectManagingAtTheMoment={props.projectManagingAtTheMoment} />;
+      case 2:
+        return <CCManageMembersInProject projectManagingAtTheMoment={props.projectManagingAtTheMoment} />;
+      default:
+        throw new Error('Unknown step');
+    }
+  }
+
+
   return (
-    <div id="FCManageProject">
+    <div id="FCManageProject" onClick={props.closeProjectManageWindow}>
       <div id="FCManageProjectChild">
           <Typography component="h1" variant="h4" align="center" style={{fontFamily:"poppins",marginTop:"5px", width:"100%",height:"5%"}}>
             Project Management
