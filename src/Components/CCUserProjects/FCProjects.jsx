@@ -16,36 +16,14 @@ const useStyles = makeStyles({
   },});
 
 
-const rows = [
-  {id:1111,project:"Skype",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Facebook",tasks:"15/19",deadline:"10/20/2021",users:4,status:"opened",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>},
-  {id:2222,project:"Twitter",tasks:"15/19",deadline:"10/20/2021",users:4,status:"closed",action:<Button variant="outlined" color="primary" disableElevation>Manage</Button>}
 
-
-];
-
-export default function FCProjects() {
+export default function FCProjects(props) {
   const classes = useStyles();
+
+//Add manage button for each project                                    //Change false to user.isAdmin
+ props.userProjects.forEach(project => project.action = 
+ <Button onClick={e => props.openProjectManagement(project)}   disabled={project.status === "Closed" && !false}  variant="outlined" color="primary" disableElevation>Manage</Button>)
+
 
   return (
     <div id="CCProjects">
@@ -63,17 +41,17 @@ export default function FCProjects() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
+          {props.userProjects.map((project) => (
+            <TableRow key={project.name}>
               <TableCell component="th" scope="row" align="center">
-                {row.id}
+                {project.id}
               </TableCell>
-              <TableCell align="center">{row.project}</TableCell>
-              <TableCell align="center">{row.tasks}</TableCell>
-              <TableCell align="center">{row.deadline}</TableCell>
-              <TableCell align="center">{row.users}</TableCell>
-              <TableCell align="center">{row.status}</TableCell>
-              <TableCell align="center">{row.action}</TableCell>
+              <TableCell align="center">{project.name}</TableCell>
+              <TableCell align="center">{project.tasks}</TableCell>
+              <TableCell align="center">{project.deadline}</TableCell>
+              <TableCell align="center">{project.users.length}</TableCell>
+              <TableCell align="center">{project.status}</TableCell>
+              <TableCell align="center">{project.action}</TableCell>
             </TableRow>
           ))}
         </TableBody>

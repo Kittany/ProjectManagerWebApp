@@ -28,7 +28,7 @@ changeDescreptionInput = (event) =>{
     render() {
         console.log(this.state.date);
         return (
-            <div id="CCCreateNote" onClick={this.props.closeWindow}>
+            <div id="CCCreateNote" onClick={this.props.closeNoteWindow}>
                 <div id="CCCreateNoteChild">
                 <h4 style={{color:"white",fontWeight:"bold",alignSelf:"center",marginTop:"5%"}}>Create Note</h4>
                 <Form.Row className="row" style={{height:"20%",margin:0}}>
