@@ -33,8 +33,6 @@ export default class CCAddTasksToProject extends Component {
 
     this.state ={
       taskInput:"",
-      tasks:[],
-      counter:0
     }
   }
 
@@ -45,14 +43,16 @@ this.setState({taskInput:event.target.value})
 
 
 addTask = () => {
-  if (this.state.taskInput.trim() == "" || this.state.tasks.filter(task => task == this.state.taskInput).length == 1 || this.state.taskInput.length > 30)
+  if (this.state.taskInput.trim() == "" || this.props.newProject.tasks.filter(task => task == this.state.taskInput).length == 1 || this.state.taskInput.length > 40)
       return;
 
-this.setState({tasks:[...this.state.tasks,this.state.taskInput], taskInput:""})
+this.props.manageNewProject((prevState) => ({...prevState,tasks:[...this.props.newProject.tasks,this.state.taskInput]}))
+this.setState({taskInput:""})
+
 }
 
 deleteTask = (value) =>{
-  this.setState({tasks:this.state.tasks.filter(task => task != value)});
+  this.props.manageNewProject((prevState) => ({...prevState,tasks:[...this.props.newProject.tasks].filter(task => task !== value)}))
 }
 
 
@@ -74,7 +74,7 @@ deleteTask = (value) =>{
         </Grid>
 
       <List style={{display:"block",overflowY:"scroll",height:"30vh",marginBottom:"4%",marginTop:"2%",padding:0}}>
-      {this.state.tasks.map(task => <>
+      {this.props.newProject.tasks.map(task => <>
       <ListItem alignItems="flex-start" style={{marginBottom:"1%",backgroundColor:"rgb(238, 238, 238)"}}><p style={{width:"90%", margin:0,padding:0,height:"3VH", fontSize:"15px",display:"block"}}>{task}</p>
       <Button onClick={e => this.deleteTask(task)} variant="outlined" color="secondary" style={{fontFamily:"poppins",width:"10%", padding:"0"}}>X</Button>
       <Divider  component="li" />
