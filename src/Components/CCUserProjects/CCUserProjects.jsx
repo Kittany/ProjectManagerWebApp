@@ -14,15 +14,19 @@ export default class CCUserProjects extends Component {
           tabOpened:"Notes",
           createNoteIsOpen:false,
           manageProjectIsOpen:false,
-          projectManagingAtTheMoment:"",
+          projectManagingAtTheMoment:null,
           notes:[], // this.props.user.notes, this array should begin with user notes by default (add it after you finish the database)
+          
+          //useContext: (it will get all the projects for this specific user)
+          //userProjects: allProjectsInDatabase.filter((project) => userInDatabase.projects.some((userProject) => project.name === userProject.name))
+          
           userProjects:[
-            {id:1111,name:"Skype",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:true},
-            {id:2222,name:"Facebook",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:true},
-            {id:3333,name:"Youtube",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:false},
-            {id:4444,name:"Google",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:false}
+            {name:"Skype",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"lolo"}],tasks:["task1"],notes:["note1"],descreption:"bla bla bla",status:true},
+            {name:"Facebook",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:true},
+            {name:"Youtube",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:false},
+            {name:"Google",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:false}
 
-          ] // change to this.props.user.projects
+          ] 
       
         }
   }
@@ -34,7 +38,6 @@ btnChangeTabs = (bool) =>{
 
     else 
     this.setState({tabOpened:"Notes"})
-
 }
 
 //get input from user when he types in the note window
@@ -53,23 +56,97 @@ closeNoteWindow = (event) => {
 }
 
 
-openProjectManagement = (project) =>{
 
-this.setState({manageProjectIsOpen:true,projectManagingAtTheMoment:project})
-}
+openProjectManagement = (project) => this.setState({manageProjectIsOpen:true,projectManagingAtTheMoment:project})
 
 
 closeProjectManageWindow = (event) =>{
 
     if (event.target.id === "FCManageProject")
     this.setState({manageProjectIsOpen: false})
+
+
+     //update the project values in the database with the new ones here using the this.state.projectManagingAtTheMoment
 }
+
+
+//updates the project data based on the event triggered (deadline change, member added...)
+updateProjectData = (eventOrValue,action) =>{
+
+    let tempProject = this.state.projectManagingAtTheMoment
+
+
+    if (action === "addTask")
+    {
+     if (eventOrValue.trim() === "" ||tempProject.tasks.filter(task => task == eventOrValue).length == 1 )
+        return;
+ 
+        tempProject.tasks.push(eventOrValue)
+    }
+    else if (action === "delTask")
+        tempProject.tasks = tempProject.tasks.filter(task => task != eventOrValue)
+
+
+    else if (action === "addNote")
+    {
+        if (eventOrValue.trim() === "" ||tempProject.notes.filter(note => note == eventOrValue).length == 1 )
+        return;
+ 
+        tempProject.notes.push(eventOrValue)
+    }
+
+    else if (action === "delNote")
+         tempProject.notes = tempProject.notes.filter(note => note != eventOrValue)
+
+
+    else if (action === "addUser")
+        tempProject.users.push({username:eventOrValue})
+    
+
+    else if (action === "delUser")
+        tempProject.users = tempProject.users.filter(user => user.username != eventOrValue)
+
+
+    else if (eventOrValue.target.name === "deadline")
+        tempProject.deadline = eventOrValue.target.value
+
+
+    else if (eventOrValue.target.name === "descreption")
+        tempProject.descreption = eventOrValue.target.value
+        
+    else if (eventOrValue.target.innerText === 'CLOSE PROJECT')
+    {
+    tempProject.status = false
+    tempProject.deadline = new Date().toISOString().substring(0,10)
+    }
+
+    else if (eventOrValue.target.innerText === 'OPEN AGAIN')
+    {
+    tempProject.status = true
+    let tomorrow = new Date();
+    tomorrow.setDate(new Date().getDate()+1)
+    tempProject.deadline = tomorrow.toISOString().substring(0,10);
+    }
+
+
+
+    this.setState({projectManagingAtTheMoment:tempProject})
+
+}
+
+
+
+
+
+
+
+
 
 
     render() {
         return (
             <div id="CCUserProjects">
-                 {this.state.manageProjectIsOpen && <FCManageProject closeProjectManageWindow={this.closeProjectManageWindow} projectManagingAtTheMoment = {this.state.projectManagingAtTheMoment} />}
+                 {this.state.manageProjectIsOpen && <FCManageProject closeProjectManageWindow={this.closeProjectManageWindow} projectManagingAtTheMoment = {this.state.projectManagingAtTheMoment} updateProjectData={this.updateProjectData} />}
                 {this.state.createNoteIsOpen && <CCCreateNoteWindow closeNoteWindow={this.closeNoteWindow} sendNoteData={this.getNoteData}/> }
                 <div id="CCUserProjectsFirstChild">
                 <FCNav btnChangeTabs={this.btnChangeTabs}/>

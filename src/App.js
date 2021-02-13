@@ -1,3 +1,4 @@
+import React,{useState,useContext,useEffect} from 'react'
 import './Styles/CCLogin.css';
 import CCLogin from './Components/CCLogin.jsx';
 import CCSidebar from './Components/CCSidebar.jsx';
@@ -8,19 +9,18 @@ import CCSettingsPage from './Components/CCSettingsPage/CCSettingsPage';
 import CCChat from './Components/CCChat/CCChat';
 
 
-function App() {
+export default function App() {
   return (
     <div id="App">
-      {/* <CCLogin /> */}
-      <CCSidebar user={{username:"Hakam",status:"Admin"}}/>
-      {/* <CCUserProjects/> */}
-      <CCAdminPage/>  
-      {/* <CCUserProfile/> */}
-      {/* <CCSettingsPage/> */}
-      {/* <CCChat/> */}
+    {/* <CCLogin /> */}
+    <CCSidebar user={{username:"Hakam",status:"Admin"}}/>
+    <CCUserProjects/>
+    {/* <CCAdminPage/>   */}
+    {/* <CCUserProfile/> */}
+    {/* <CCSettingsPage/> */}
+    {/* <CCChat/> */}
 
-    </div>
-  );
+  </div>
+  )
 }
 
-export default App;

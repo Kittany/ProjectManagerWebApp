@@ -86,7 +86,7 @@ changeNoteInput = (event) =>{
           onClick={this.addTask} disabled={!true} variant="outlined" color="secondary" style={{fontFamily:"poppins",marginLeft:"1%",height:"30%",width:"10%"}}>Add</Button>
         </Grid>
 
-      <List style={{display:"block",overflowY:"scroll",height:"95%",width:"100%",marginBottom:"1%",marginTop:"2%",padding:15}}>
+      <List style={{display:"block",overflowY:"scroll",height:"95%",width:"100%",marginBottom:"1%",marginTop:"2%",padding:"15px"}}>
       {this.props.projectManagingAtTheMoment.tasks.map(task => <>
       <ListItem alignItems="flex-start" style={{marginBottom:"1%",backgroundColor:"rgb(238, 238, 238)"}}><p style={{width:"90%", margin:0,padding:0,height:"3VH", fontSize:"15px",display:"block"}}>{task}</p>
       <Button onClick={e => this.props.updateProjectData(task,"delTask")} variant="outlined" color="secondary" style={{fontFamily:"poppins",width:"10%", padding:"0"}}>X</Button>

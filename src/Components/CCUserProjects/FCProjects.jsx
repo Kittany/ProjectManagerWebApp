@@ -31,7 +31,6 @@ export default function FCProjects(props) {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center" style={{fontWeight:"bold"}}>ID</TableCell>
             <TableCell align="center" style={{fontWeight:"bold"}}>Project</TableCell>
             <TableCell align="center" style={{fontWeight:"bold"}}>Tasks</TableCell>
             <TableCell align="center" style={{fontWeight:"bold"}}>Deadline</TableCell>
@@ -43,9 +42,6 @@ export default function FCProjects(props) {
         <TableBody>
           {props.userProjects.map((project) => (
             <TableRow key={project.name}>
-              <TableCell component="th" scope="row" align="center">
-                {project.id}
-              </TableCell>
               <TableCell align="center">{project.name}</TableCell>
               <TableCell align="center">{project.tasks}</TableCell>
               <TableCell align="center">{project.deadline}</TableCell>

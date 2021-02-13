@@ -17,12 +17,12 @@ export default class CCAdminPage extends Component {
       this.state = {
           tabOpened:"Users",
           manageProjectIsOpen:false,
-          projectManagingAtTheMoment:"",
+          projectManagingAtTheMoment:null,
           allProjects:[
-            {id:1111,name:"Skype",openDate:"2020-05-30",deadline:"2021-10-20",users:[],tasks:["task1"],notes:["note1"],descreption:"bla bla bla",status:true},
-            {id:2222,name:"Facebook",openDate:"2020-05-30",deadline:"2021-10-20",users:[],tasks:["task2"],notes:["note3"],descreption:"bla bla bla",status:true},
-            {id:3333,name:"Youtube",openDate:"2020-05-30",deadline:"2021-10-20",users:[],tasks:["task1"],notes:["note1"],descreption:"bla bla bla",status:false},
-            {id:4444,name:"Google",openDate:"2020-05-30",deadline:"2021-10-20",users:[],tasks:["task"],notes:["note5"],descreption:"bla bla bla",status:false}
+            {name:"Skype",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"lolo"}],tasks:["task1"],notes:["note1"],descreption:"bla bla bla",status:true},
+            {name:"Facebook",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"meow"},{username:"lolo"}],tasks:["task2"],notes:["note3"],descreption:"bla bla bla",status:true},
+            {name:"Youtube",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"meow"}],tasks:["task1"],notes:["note1"],descreption:"bla bla bla",status:false},
+            {name:"Google",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"lolo"}],tasks:["task"],notes:["note5"],descreption:"bla bla bla",status:false}
 
           ] // change to all the projects available on the database
       }
@@ -41,12 +41,16 @@ btnChangeTabs = (bool) =>{
 openProjectManageWindow = (project) =>{ this.setState({manageProjectIsOpen:true,projectManagingAtTheMoment:project}) }
     
 //closes the project management window
-closeProjectManageWindow = (event,projectUpdate) =>{
+closeProjectManageWindow = (event) =>{
     
         if (event.target.id === "FCManageProject")
         this.setState({manageProjectIsOpen: false})
 
-        //update the project value in the database with the new ones here using the this.state.projectManagingAtTheMoment
+        //update the project values in the database with the new ones here using the this.state.projectManagingAtTheMoment
+        
+
+
+
     }
     
 //updates the project data based on the event triggered (deadline change, member added...)
@@ -57,18 +61,18 @@ updateProjectData = (eventOrValue,action) =>{
 
     if (action === "addTask")
     {
-     if (eventOrValue.trim() == "" ||tempProject.tasks.filter(task => task == eventOrValue).length == 1 || eventOrValue.length > 40)
+     if (eventOrValue.trim() === "" ||tempProject.tasks.filter(task => task == eventOrValue).length == 1)
         return;
  
         tempProject.tasks.push(eventOrValue)
     }
-    else if (action == "delTask")
+    else if (action === "delTask")
         tempProject.tasks = tempProject.tasks.filter(task => task != eventOrValue)
 
 
     else if (action === "addNote")
     {
-        if (eventOrValue.trim() == "" ||tempProject.notes.filter(note => note == eventOrValue).length == 1 || eventOrValue.length > 40)
+        if (eventOrValue.trim() === "" ||tempProject.notes.filter(note => note == eventOrValue).length == 1 )
         return;
  
         tempProject.notes.push(eventOrValue)
@@ -76,6 +80,14 @@ updateProjectData = (eventOrValue,action) =>{
 
     else if (action === "delNote")
          tempProject.notes = tempProject.notes.filter(note => note != eventOrValue)
+
+
+    else if (action === "addUser")
+        tempProject.users.push({username:eventOrValue})
+    
+
+    else if (action === "delUser")
+        tempProject.users = tempProject.users.filter(user => user.username != eventOrValue)
 
 
     else if (eventOrValue.target.name === "deadline")
@@ -98,9 +110,6 @@ updateProjectData = (eventOrValue,action) =>{
     tomorrow.setDate(new Date().getDate()+1)
     tempProject.deadline = tomorrow.toISOString().substring(0,10);
     }
-
-
-
 
 
 

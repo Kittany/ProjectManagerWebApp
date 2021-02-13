@@ -22,7 +22,7 @@ export default function FCProjectsAdmin(props) {
   const classes = useStyles();
 
 
-//Add manage button for each project                                   
+//Add manage button for each project                               
 props.allProjects.forEach(project => project.action = 
   <Button onClick={e => props.openProjectManageWindow(project)}   variant="outlined" color="primary" disableElevation>Manage</Button>)
 
@@ -35,7 +35,6 @@ props.allProjects.forEach(project => project.action =
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell style={{fontWeight:"bold"}} align="center" >ID</TableCell>
             <TableCell style={{fontWeight:"bold"}} align="center">Project</TableCell>
             <TableCell style={{fontWeight:"bold"}} align="center">Tasks</TableCell>
             <TableCell style={{fontWeight:"bold"}} align="center">Deadline</TableCell>
@@ -47,9 +46,6 @@ props.allProjects.forEach(project => project.action =
         <TableBody>
           {props.allProjects.map((project) => (
             <TableRow key={project.name}>
-              <TableCell component="th" scope="row" align="center">
-                {project.id}
-              </TableCell>
               <TableCell align="center">{project.name}</TableCell>
               <TableCell align="center">{project.tasks.length}</TableCell>
               <TableCell align="center">{project.deadline}</TableCell>
