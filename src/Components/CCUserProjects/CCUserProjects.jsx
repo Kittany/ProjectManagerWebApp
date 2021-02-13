@@ -2,7 +2,7 @@ import { Button } from '@material-ui/core'
 import React, { Component } from 'react'
 import '../../Styles/CCUserProjects.css'
 import FCNav from './FCNav.jsx'
-import CCNotes from './CCNotes.jsx'
+import FCNotes from './FCNotes.jsx'
 import FCProjects from './FCProjects.jsx'
 import FCManageProject from '../CCManageProject/FCManageProject.jsx'
 import CCCreateNoteWindow from './CreateNote/CCCreateNoteWindow.jsx'
@@ -12,14 +12,15 @@ export default class CCUserProjects extends Component {
       super(props);
       this.state = {
           tabOpened:"Notes",
+          errorMessage:"",
           createNoteIsOpen:false,
           manageProjectIsOpen:false,
           projectManagingAtTheMoment:null,
-          notes:[], // this.props.user.notes, this array should begin with user notes by default (add it after you finish the database)
+         
           
           //useContext: (it will get all the projects for this specific user)
           //userProjects: allProjectsInDatabase.filter((project) => userInDatabase.projects.some((userProject) => project.name === userProject.name))
-          
+          userNotes:[], // this.props.user.notes, this array should begin with user notes by default (add it after you finish the database)
           userProjects:[
             {name:"Skype",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"lolo"}],tasks:["task1"],notes:["note1"],descreption:"bla bla bla",status:true},
             {name:"Facebook",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:true},
@@ -42,10 +43,30 @@ btnChangeTabs = (bool) =>{
 
 //get input from user when he types in the note window
 getNoteData = (datafromChild) =>{
+   //reset error message when user clicks on button so it doesn't appear again when he tries to add another note
+   this.setState({errorMessage:""})
 
-if (datafromChild.descreptionInput.trim() != "" && datafromChild.titleInput.trim() != "")
-    this.setState({notes:[...this.state.notes,datafromChild],createNoteIsOpen: false})
+if (this.state.userNotes.some(note => note.titleInput === datafromChild.titleInput ))
+{
+    this.setState({errorMessage:"You already have a note with that title, try another!"})
+    return   
+} 
+
+if (datafromChild.descreptionInput.trim() !== "" && datafromChild.titleInput.trim() !== "")
+    this.setState({userNotes:[...this.state.userNotes,datafromChild],createNoteIsOpen: false})
+
+
+//update usernotes in database here
+
 }
+
+deleteNoteData = (datafromChild) => 
+{
+    this.setState({userNotes:[...this.state.userNotes.filter(note => note.titleInput !== datafromChild.titleInput)]})
+    //update usernotes in database here
+}
+
+
 
 
 //if you click around the create note div it will close the window
@@ -53,6 +74,7 @@ closeNoteWindow = (event) => {
     
      if (event.target.id === "CCCreateNote")
     this.setState({createNoteIsOpen: false})
+
 }
 
 
@@ -136,23 +158,16 @@ updateProjectData = (eventOrValue,action) =>{
 
 
 
-
-
-
-
-
-
-
     render() {
         return (
             <div id="CCUserProjects">
                  {this.state.manageProjectIsOpen && <FCManageProject closeProjectManageWindow={this.closeProjectManageWindow} projectManagingAtTheMoment = {this.state.projectManagingAtTheMoment} updateProjectData={this.updateProjectData} />}
-                {this.state.createNoteIsOpen && <CCCreateNoteWindow closeNoteWindow={this.closeNoteWindow} sendNoteData={this.getNoteData}/> }
+                {this.state.createNoteIsOpen && <CCCreateNoteWindow closeNoteWindow={this.closeNoteWindow} sendNoteData={this.getNoteData} errorMessage={this.state.errorMessage}/> }
                 <div id="CCUserProjectsFirstChild">
                 <FCNav btnChangeTabs={this.btnChangeTabs}/>
                 {this.state.tabOpened === "Notes" && <Button onClick={e => this.setState({createNoteIsOpen:true})} id="CCUserProjectsFirstChildBtn" variant="contained" color="primary" disableElevation>Add note</Button>}</div>
                 <div id="CCUserProjectsSecondChild">
-                    {this.state.tabOpened === "Notes"?<CCNotes notes={this.state.notes}/>:<FCProjects userProjects={this.state.userProjects} openProjectManagement={this.openProjectManagement}/>}
+                    {this.state.tabOpened === "Notes"?<FCNotes userNotes={this.state.userNotes} deleteNoteData={this.deleteNoteData} />:<FCProjects userProjects={this.state.userProjects} openProjectManagement={this.openProjectManagement}/>}
                 </div>
             </div>
         )

@@ -1,16 +1,13 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import CCSetProjectDescreption from './CCSetProjectDescreption';
+import FCSetProjectDescreption from './FCSetProjectDescreption';
 import CCAddTasksToProject from './CCAddTasksToProject';
 import CCAddMembersToProject from './CCAddMembersToProject';
 import { Alert, AlertTitle } from '@material-ui/lab';
@@ -54,22 +51,34 @@ const useStyles = makeStyles((theme) => ({
 
 const steps = ['Project Descreption', 'Set Tasks', 'Assign Users'];
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <CCSetProjectDescreption />;
-    case 1:
-      return <CCAddTasksToProject />;
-    case 2:
-      return <CCAddMembersToProject />;
-    default:
-      throw new Error('Unknown step');
-  }
-}
 
-export default function FCCreateProject() {
+
+export default function FCCreateProject(props) {
+
+  const getStepContent = (step) => {
+    switch (step) {
+      case 0:
+        return <FCSetProjectDescreption errorMessage={errorMessage} newProject={newProject} setErrorMessage={setErrorMessage} manageNewProject = {manageNewProject} />;
+      case 1:
+        return <CCAddTasksToProject  newProject={newProject} manageNewProject = {manageNewProject}/>;
+      case 2:
+        return <CCAddMembersToProject newProject={newProject} manageNewProject = {manageNewProject}/>;
+      default:
+        throw new Error('Unknown step');
+    }
+  }
+
+
+
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
+  const [errorMessage,setErrorMessage] = React.useState("")
+
+  //Create new project with default values
+  let tomorrow = new Date();
+  tomorrow.setDate(new Date().getDate()+1)
+  const [newProject,manageNewProject] = 
+  new React.useState({name:"",openDate:new Date().toISOString().substring(0,10),deadline:tomorrow.toISOString().substring(0,10),users:[],tasks:[],notes:[],descreption:"",status:true})
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -80,7 +89,7 @@ export default function FCCreateProject() {
   };
 
   return (
-    <div id="FCCreateProject">
+    <div id="FCCreateProject" onMouseDown={props.closeCreateProjectWindow}>
       <div id="FCCreateProjectChild">
     <React.Fragment>
       <CssBaseline />
@@ -97,18 +106,6 @@ export default function FCCreateProject() {
             ))}
           </Stepper>
           <React.Fragment>
-            {activeStep === steps.length ? (
-              <React.Fragment>
-                <Typography variant="h5" gutterBottom style={{fontFamily:"poppins"}}>
-                <Alert severity="success">
-                <AlertTitle>Success</AlertTitle>
-                Project has been successfully started
-               </Alert>
-                  
-                </Typography>
-                <Button variant="contained" color="primary" disableElevation style={{fontFamily:"poppins"}}>Close</Button>
-              </React.Fragment>
-            ) : (
               <React.Fragment>
                 {getStepContent(activeStep)}
                 <div className={classes.buttons}>
@@ -120,14 +117,14 @@ export default function FCCreateProject() {
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={handleNext}
+                    onClick={activeStep === steps.length-1? e => (props.updateProjectData(newProject,"CreateProject")):errorMessage === "" && newProject.name.trim() !== "" && handleNext}
                     className={classes.button} style={{fontFamily:"poppins"}}
+      
                   >
                     {activeStep === steps.length - 1 ? 'Start Project' : 'Next'}
                   </Button>
                 </div>
               </React.Fragment>
-            )}
           </React.Fragment>
         </Paper>
       </main>

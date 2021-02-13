@@ -15,7 +15,7 @@ export default function App() {
     {/* <CCLogin /> */}
     <CCSidebar user={{username:"Hakam",status:"Admin"}}/>
     {/* <CCUserProjects/> */}
-    {/* <CCAdminPage/>   */}
+    <CCAdminPage/>  
     {/* <CCUserProfile/> */}
     {/* <CCSettingsPage/> */}
     {/* <CCChat/> */}

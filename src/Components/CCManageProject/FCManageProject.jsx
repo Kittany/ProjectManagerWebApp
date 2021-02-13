@@ -44,7 +44,7 @@ export default function FCManageProject(props) {
 
 
   return (
-    <div id="FCManageProject" onClick={props.closeProjectManageWindow}>
+    <div id="FCManageProject" onMouseDown={props.closeProjectManageWindow}>
       <div id="FCManageProjectChild">
           <Typography component="h1" variant="h4" align="center" style={{fontFamily:"poppins",marginTop:"5px", width:"100%",height:"10%",fontWeight:"bold"}}>
             Project Management

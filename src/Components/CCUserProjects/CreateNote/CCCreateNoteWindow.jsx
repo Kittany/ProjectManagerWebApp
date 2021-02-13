@@ -26,9 +26,8 @@ changeDescreptionInput = (event) =>{
 }
 
     render() {
-        console.log(this.state.date);
         return (
-            <div id="CCCreateNote" onClick={this.props.closeNoteWindow}>
+            <div id="CCCreateNote" onMouseDown={this.props.closeNoteWindow}>
                 <div id="CCCreateNoteChild">
                 <h4 style={{color:"white",fontWeight:"bold",alignSelf:"center",marginTop:"5%"}}>Create Note</h4>
                 <Form.Row className="row" style={{height:"20%",margin:0}}>
@@ -39,14 +38,16 @@ changeDescreptionInput = (event) =>{
                 </Form.Row>
                   <Form.Label style={{color:"white", fontWeight:"bold", fontSize:"15px", width:"80%",marginLeft:"10%"}}>Descreption</Form.Label>
                   <textarea onChange={this.changeDescreptionInput} style={{width:"80%",height:"40%",alignSelf:"center"}}></textarea>
-         
-               <Form.Row className="row" style={{width:"100%",height:"10%"}}>
-                <Button onClick={e => this.props.sendNoteData(this.state)} variant="contained"  type="submit" style={{marginTop:"3%",color:"black",fontWeight:"bold",fontFamily:"poppins"}}>
-                  Confirm Changes
-                </Button>
-               </Form.Row>
-                </div>
-                 </div>
+                  <Form.Row className="row" style={{width:"100%",height:"10%"}}>
+                  <Form.Label style={{color:"white", fontWeight:"bold", fontSize:"20px",fontFamily:"poppins"}}>{this.props.errorMessage}</Form.Label>
+                </Form.Row>
+                <Form.Row className="row" style={{width:"100%",height:"9%"}}>
+                    <Button onClick={e => this.props.sendNoteData(this.state)} variant="contained"  type="submit" style={{marginTop:"1%",color:"black",fontWeight:"bold",fontFamily:"poppins"}}>
+                    Create
+                    </Button>
+                </Form.Row>
+                    </div>
+                    </div>
         )
     }
 }

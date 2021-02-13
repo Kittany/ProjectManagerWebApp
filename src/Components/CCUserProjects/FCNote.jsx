@@ -47,7 +47,7 @@ export default function FCNote(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" color="Secondary" style={{position:"absolute", bottom:"0", right:"0"}}>Delete</Button>
+        <Button onClick={e => props.deleteNoteData(props.note)} size="small" color="Secondary" style={{position:"absolute", bottom:"0", right:"0"}}>Discard</Button>
       </CardActions>
     </Card>
   );
