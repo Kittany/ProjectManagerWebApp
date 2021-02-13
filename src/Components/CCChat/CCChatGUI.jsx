@@ -31,6 +31,16 @@ export default class CCChatGUI extends Component {
     this.chatContainer.current.scrollTo(0, scroll);
   };
 
+  componentDidMount(){
+    let idz = document.getElementById("tempID");
+    setInterval(() => {
+      idz.style.top = 0;
+      idz.style.left = 0;
+      idz.style.behavior = "smooth";
+      },2000);
+  }
+
+
   render() {
     return (
       <div id="CCChatGUI">
@@ -174,6 +184,7 @@ export default class CCChatGUI extends Component {
             <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
             <span className="time-left">11:05</span>
           </div>
+          <div id="tempID" style={{width:"1%", height:"1%"}}>a</div>
         </div>
         <div className="chat__form">
           <form id="chat__form">
@@ -187,6 +198,7 @@ export default class CCChatGUI extends Component {
             </button>
           </form>
         </div>
+        
       </div>
     );
   }
