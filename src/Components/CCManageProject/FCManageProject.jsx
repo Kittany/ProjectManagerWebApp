@@ -1,35 +1,24 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Paper from '@material-ui/core/Paper';
+import React,{useState} from 'react';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import CCManageProjectDescreption from './CCManageProjectDescreption';
+import FCManageProjectDescreption from './FCManageProjectDescreption';
 import CCManageTasksInProject from './CCManageTasksInProject';
 import CCManageMembersInProject from './CCManageMembersInProject';
-
-
-
-
-
-
 
 
 
 export default function FCManageProject(props) {
   const steps = ['Descreption', 'Tasks & Notes'];
 
-  //replace true with props.user.isAdmin
-  if(false)
-     steps.push('Users')
+  //replace true with user.isAdmin from database
+     true && steps.push('Users')
 
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = useState(0);
+
+
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -43,11 +32,11 @@ export default function FCManageProject(props) {
   const getStepContent = (step) => {
     switch (step) {
       case 0:
-        return <CCManageProjectDescreption projectManagingAtTheMoment={props.projectManagingAtTheMoment} />;
+        return <FCManageProjectDescreption projectManagingAtTheMoment={props.projectManagingAtTheMoment} updateProjectData={props.updateProjectData}/>;
       case 1:
-        return <CCManageTasksInProject projectManagingAtTheMoment={props.projectManagingAtTheMoment} />;
+        return <CCManageTasksInProject projectManagingAtTheMoment={props.projectManagingAtTheMoment} updateProjectData={props.updateProjectData}/>;
       case 2:
-        return <CCManageMembersInProject projectManagingAtTheMoment={props.projectManagingAtTheMoment} />;
+        return <CCManageMembersInProject projectManagingAtTheMoment={props.projectManagingAtTheMoment} updateProjectData={props.updateProjectData}/>;
       default:
         throw new Error('Unknown step');
     }
@@ -57,7 +46,7 @@ export default function FCManageProject(props) {
   return (
     <div id="FCManageProject" onClick={props.closeProjectManageWindow}>
       <div id="FCManageProjectChild">
-          <Typography component="h1" variant="h4" align="center" style={{fontFamily:"poppins",marginTop:"5px", width:"100%",height:"5%"}}>
+          <Typography component="h1" variant="h4" align="center" style={{fontFamily:"poppins",marginTop:"5px", width:"100%",height:"10%",fontWeight:"bold"}}>
             Project Management
           </Typography>
           <Stepper activeStep={activeStep} style={{width:"100%",height:"10%"}}>
@@ -69,7 +58,7 @@ export default function FCManageProject(props) {
           </Stepper>
           <React.Fragment>
                 {getStepContent(activeStep)}
-                <div style={{width:"100%",height:"10%", display:"flex",justifyContent:"flex-end",alignItems:"flex-end",marginTop:"2%"}}>
+                <div style={{width:"100%",height:"2%", display:"flex",justifyContent:"flex-end",alignItems:"flex-end",marginTop:"2%"}}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} variant="outlined" style={{fontFamily:"poppins"}}>
                       Back

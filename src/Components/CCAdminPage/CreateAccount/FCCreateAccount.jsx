@@ -80,11 +80,11 @@ export default function FCCreateAccount() {
 
   return (
     <div id="FCCreateAccount">
-      <div>
+      <div id="FCCreateAccoutChild">
     <React.Fragment>
       <CssBaseline />
-      <main className={classes.layout}>
-        <Paper className={classes.paper}>
+      <main className={classes.layout} >
+        <Paper className={classes.paper} style={{margin:0}}>
           <Typography component="h1" variant="h4" align="center" style={{fontFamily:"poppins"}}>
             Create Account
           </Typography>

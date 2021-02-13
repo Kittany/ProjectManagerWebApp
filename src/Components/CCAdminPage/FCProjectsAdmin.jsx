@@ -17,37 +17,41 @@ const useStyles = makeStyles({
 
 
 
-export default function FCProjects(props) {
+
+export default function FCProjectsAdmin(props) {
   const classes = useStyles();
 
-//Add manage button for each project                                    //Change false to user.isAdmin
- props.userProjects.forEach(project => project.action = 
- <Button onClick={e => props.openProjectManagement(project)}   disabled={project.status === "Closed" && !false}  variant="outlined" color="primary" disableElevation>Manage</Button>)
+
+//Add manage button for each project                               
+props.allProjects.forEach(project => project.action = 
+  <Button onClick={e => props.openProjectManageWindow(project)}   variant="outlined" color="primary" disableElevation>Manage</Button>)
+
+
 
 
   return (
-    <div id="CCProjects">
+    <div id="CCProjectsAdmin">
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center" style={{fontWeight:"bold",fontFamily:"poppins"}}>Project</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold",fontFamily:"poppins"}}>Tasks</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold",fontFamily:"poppins"}}>Deadline</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold",fontFamily:"poppins"}}>Users</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold",fontFamily:"poppins"}}>Status</TableCell>
-            <TableCell align="center" style={{fontWeight:"bold",fontFamily:"poppins"}}>Action</TableCell>
+            <TableCell style={{fontWeight:"bold",fontFamily:"poppins"}} align="center">Project</TableCell>
+            <TableCell style={{fontWeight:"bold",fontFamily:"poppins"}} align="center">Tasks</TableCell>
+            <TableCell style={{fontWeight:"bold",fontFamily:"poppins"}} align="center">Deadline</TableCell>
+            <TableCell style={{fontWeight:"bold",fontFamily:"poppins"}} align="center">Users</TableCell>
+            <TableCell style={{fontWeight:"bold",fontFamily:"poppins"}} align="center">Status</TableCell>
+            <TableCell style={{fontWeight:"bold",fontFamily:"poppins"}} align="center">Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.userProjects.map((project) => (
+          {props.allProjects.map((project) => (
             <TableRow key={project.name}>
               <TableCell align="center" style={{fontFamily:"poppins"}}>{project.name}</TableCell>
               <TableCell align="center" style={{fontFamily:"poppins"}}>{project.tasks.length}</TableCell>
               <TableCell align="center" style={{fontFamily:"poppins"}}>{project.deadline}</TableCell>
               <TableCell align="center" style={{fontFamily:"poppins"}}>{project.users.length}</TableCell>
               <TableCell align="center" style={{fontFamily:"poppins",color:`${project.status?"green":"red"}`,fontWeight:"bold"}}>{project.status?"Open":"Closed"}</TableCell>
-              <TableCell align="center">{project.action}</TableCell>
+              <TableCell align="center" style={{fontFamily:"poppins"}}>{project.action}</TableCell>
             </TableRow>
           ))}
         </TableBody>
