@@ -78,7 +78,7 @@ updateProjectData = (eventOrValue,action) =>{
 
     if (action === "addTask")
     {
-     if (eventOrValue.trim() === "" ||tempProject.tasks.filter(task => task == eventOrValue).length == 1 )
+     if (eventOrValue.trim() === "" ||tempProject.tasks.filter(task => task == eventOrValue).length == 1)
         return;
  
         tempProject.tasks.push(eventOrValue)
@@ -89,7 +89,7 @@ updateProjectData = (eventOrValue,action) =>{
 
     else if (action === "addNote")
     {
-        if (eventOrValue.trim() === "" ||tempProject.notes.filter(note => note == eventOrValue).length == 1 )
+        if (eventOrValue.trim() === "" ||tempProject.notes.filter(note => note == eventOrValue).length == 1)
         return;
  
         tempProject.notes.push(eventOrValue)

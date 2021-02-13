@@ -35,23 +35,23 @@ props.allProjects.forEach(project => project.action =
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell style={{fontWeight:"bold"}} align="center">Project</TableCell>
-            <TableCell style={{fontWeight:"bold"}} align="center">Tasks</TableCell>
-            <TableCell style={{fontWeight:"bold"}} align="center">Deadline</TableCell>
-            <TableCell style={{fontWeight:"bold"}} align="center">Users</TableCell>
-            <TableCell style={{fontWeight:"bold"}} align="center">Status</TableCell>
-            <TableCell style={{fontWeight:"bold"}} align="center">Action</TableCell>
+            <TableCell style={{fontWeight:"bold",fontFamily:"poppins"}} align="center">Project</TableCell>
+            <TableCell style={{fontWeight:"bold",fontFamily:"poppins"}} align="center">Tasks</TableCell>
+            <TableCell style={{fontWeight:"bold",fontFamily:"poppins"}} align="center">Deadline</TableCell>
+            <TableCell style={{fontWeight:"bold",fontFamily:"poppins"}} align="center">Users</TableCell>
+            <TableCell style={{fontWeight:"bold",fontFamily:"poppins"}} align="center">Status</TableCell>
+            <TableCell style={{fontWeight:"bold",fontFamily:"poppins"}} align="center">Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {props.allProjects.map((project) => (
             <TableRow key={project.name}>
-              <TableCell align="center">{project.name}</TableCell>
-              <TableCell align="center">{project.tasks.length}</TableCell>
-              <TableCell align="center">{project.deadline}</TableCell>
-              <TableCell align="center">{project.users.length}</TableCell>
-              <TableCell align="center">{project.status?"Open":"Closed"}</TableCell>
-              <TableCell align="center">{project.action}</TableCell>
+              <TableCell align="center" style={{fontFamily:"poppins"}}>{project.name}</TableCell>
+              <TableCell align="center" style={{fontFamily:"poppins"}}>{project.tasks.length}</TableCell>
+              <TableCell align="center" style={{fontFamily:"poppins"}}>{project.deadline}</TableCell>
+              <TableCell align="center" style={{fontFamily:"poppins"}}>{project.users.length}</TableCell>
+              <TableCell align="center" style={{fontFamily:"poppins",color:`${project.status?"green":"red"}`,fontWeight:"bold"}}>{project.status?"Open":"Closed"}</TableCell>
+              <TableCell align="center" style={{fontFamily:"poppins"}}>{project.action}</TableCell>
             </TableRow>
           ))}
         </TableBody>

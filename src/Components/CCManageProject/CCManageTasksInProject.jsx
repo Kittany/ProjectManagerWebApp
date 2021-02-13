@@ -40,6 +40,7 @@ export default class CCManageTasksInProject extends Component {
 
 //Tasks
 changeTaskInput = (event) =>{
+  if (this.state.taskInput.length < 40)
 this.setState({taskInput:event.target.value})
 }
 
@@ -52,6 +53,7 @@ this.setState({taskInput:""})
 
 //Notes
 changeNoteInput = (event) =>{
+  if (this.state.noteInput.length < 40)
   this.setState({noteInput:event.target.value})
   }
   
@@ -88,7 +90,7 @@ changeNoteInput = (event) =>{
 
       <List style={{display:"block",overflowY:"scroll",height:"95%",width:"100%",marginBottom:"1%",marginTop:"2%",padding:"15px"}}>
       {this.props.projectManagingAtTheMoment.tasks.map(task => <>
-      <ListItem alignItems="flex-start" style={{marginBottom:"1%",backgroundColor:"rgb(238, 238, 238)"}}><p style={{width:"90%", margin:0,padding:0,height:"3VH", fontSize:"15px",display:"block"}}>{task}</p>
+      <ListItem alignItems="flex-start" style={{marginBottom:"1%",backgroundColor:"rgb(238, 238, 238)",border:"1px solid gray"}}><p style={{width:"90%", margin:0,padding:0,height:"3VH", fontSize:"15px"}}>{task}</p>
       <Button onClick={e => this.props.updateProjectData(task,"delTask")} variant="outlined" color="secondary" style={{fontFamily:"poppins",width:"10%", padding:"0"}}>X</Button>
       <Divider  component="li" />
       </ListItem></>)}
@@ -113,7 +115,7 @@ changeNoteInput = (event) =>{
 
       <List style={{display:"block",overflowY:"scroll",height:"95%",width:"100%",marginBottom:"1%",marginTop:"2%",padding:15}}>
       {this.props.projectManagingAtTheMoment.notes.map(note => <>
-      <ListItem alignItems="flex-start" style={{marginBottom:"1%",backgroundColor:"rgb(238, 238, 238)"}}><p style={{width:"90%", margin:0,padding:0,height:"3VH", fontSize:"15px",display:"block"}}>{note}</p>
+      <ListItem alignItems="flex-start" style={{marginBottom:"1%",backgroundColor:"rgb(238, 238, 238)",border:"1px solid gray"}}><p style={{width:"90%", margin:0,padding:0,height:"3VH", fontSize:"15px"}}>{note}</p>
       <Button onClick={e => this.props.updateProjectData(note,"delNote")} variant="outlined" color="secondary" style={{fontFamily:"poppins",width:"10%", padding:"0"}}>X</Button>
       <Divider  component="li" />
       </ListItem></>)}

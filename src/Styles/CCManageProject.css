@@ -38,6 +38,8 @@
     justify-content: space-evenly;
     flex-direction: column;
     color: black;
+    border: 1px solid gray;
+    padding: 2%;
 
 }
 
@@ -67,6 +69,7 @@
     width: 49%;
     height: 100%;
     padding: 2%;
+    border: 1px solid gray;
 
 }
 
@@ -101,7 +104,6 @@ display: flex;
 justify-content: space-evenly;
 align-items: center;
 padding: 15px;
-border:1px solid gray;
 
 }
 
@@ -112,4 +114,5 @@ border:1px solid gray;
     overflow-y: scroll;
     display: inline-block;
     padding: 15px;
+    border:1px solid gray;
 }
