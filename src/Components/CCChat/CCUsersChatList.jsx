@@ -23,10 +23,10 @@ export default class CCUsersChatList extends Component {
         <div
           style={{
             width: "100%",
-            height: "7%",
-            marginTop: "8%",
+            height: "13%",
             display: "flex",
             flexDirection: "column",
+            justifyContent:"center"
           }}
         >
           <h4
@@ -49,9 +49,9 @@ export default class CCUsersChatList extends Component {
             onChange={this.inputHandler}
           />
         </div>
-        <div id="CCUsersChatListContainer" style={{ width: "100%", height: "100%", overflowY:"scroll",display:"block",marginTop:"5%"}}>
+        <div id="CCUsersChatListContainer" style={{overflowY:"scroll",display:"block"}}>
           {this.state.users.filter(user => user.toLowerCase().substring(0, this.state.searchNameInput.length) == this.state.searchNameInput).map(user => 
-            <div className="ChatContainer darker" handleScroll={this.ScrollDown()}>
+            <div className="ChatContainer darker" style={{ cursor: "pointer"}} handleScroll={this.ScrollDown()}>
               <img style={{width:"15%"}} name="1" src="Avatars/1.svg" width="10%" height="10%" alt="" />
               <h3>{user} <span style={{ fontSize: "14px", color: "rgb(122, 151, 255)",fontWeight:"bold"}}>FullStack</span></h3>
               

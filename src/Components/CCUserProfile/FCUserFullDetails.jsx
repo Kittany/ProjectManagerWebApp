@@ -8,7 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
-export default function FCUserFullDetails() {
+export default function FCUserFullDetails(props) {
   const useStyles = makeStyles({
     table: {
       minWidth: 650,
@@ -34,7 +34,7 @@ export default function FCUserFullDetails() {
             <TableCell align="center" style={{ fontWeight: "bold" }}>
               First Name
             </TableCell>
-            <TableCell align="center">{user.firstName}</TableCell>
+            <TableCell align="center">{props.userName}</TableCell>
           </TableHead>
           <TableHead>
             <TableCell align="center" style={{ fontWeight: "bold" }}>

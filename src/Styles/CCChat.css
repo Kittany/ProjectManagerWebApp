@@ -21,8 +21,16 @@
 
 #CCUsersChatList {
     width: 100%;
-    height: 88%;
+    height: 100%;
 }
+
+#CCUsersChatListContainer {
+    user-select: none;
+    width: 100%;
+    height: 87%;
+}
+
+
 
 .CCChatFirstSecond {
     width: 75%;
@@ -60,6 +68,7 @@
 #chatUserSearchInput::focus {
     border-color: rgb(84, 86, 255);
 }
+
 /* Chat containers */
 
 .ChatContainer {

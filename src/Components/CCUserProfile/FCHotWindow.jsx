@@ -11,7 +11,7 @@ export default function FCHotWindow(props) {
           alt=""
         ></img>
         <div id="userDetails">
-          <h2 id="username">JohnDoe12</h2>
+          <h2 id="username">{props.userName}</h2>
           <p id="userRole">Full Stack Developer</p>
           <p>Country, <span>Address</span></p>
           <Button id="btnMessage" variant="contained" color="primary" disableElevation>
