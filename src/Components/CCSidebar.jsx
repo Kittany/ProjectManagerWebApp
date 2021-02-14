@@ -22,8 +22,8 @@ this.setState({selected:tabName})
       <div className="p-4 pt-5" id="sidebarTop">
       <div id="userInfo">
       <img className="img logo rounded-circle mb-3" src="Avatars/1.svg" width="100%" height="100%" alt=""/> 
-      <p style={{fontWeight:"bold", fontSize:"25px"}}>{this.props.user.username}</p>
-      <p style={{color:"goldenrod", fontSize:"20px"}}>{this.props.user.status}</p>     
+      <p style={{fontWeight:"bold", fontSize:"25px"}}>username</p>
+      <p style={{color:"goldenrod", fontSize:"20px"}}>status</p>     
       </div>
         <ul className="list-unstyled components mb-5">
           <li onClick={e => this.changeSelected("My Projects")} className={this.state.selected === "My Projects"?"active":null}>

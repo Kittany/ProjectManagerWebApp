@@ -54,6 +54,7 @@ export default class CCLogin extends Component {
   };
 
   render() {
+    console.log(this.props.user);
     return (
       <div id="CCLogin">
         {/* {this.state.emailInput ? (<CCSidebar/>) : (<CCLogin/>)} */}
