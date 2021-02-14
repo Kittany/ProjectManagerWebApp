@@ -18,18 +18,21 @@ export default class CCAdminPage extends Component {
           tabOpened:"Users",
           manageProjectIsOpen:false,
           createProjectIsOpen:false,
+          createAccountIsOpen:false,
           projectManagingAtTheMoment:null,
           allProjects:[
             {name:"Skype",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"lolo"}],tasks:["task1"],notes:["note1"],descreption:"bla bla bla",status:true},
             {name:"Facebook",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"meow"},{username:"lolo"}],tasks:["task2"],notes:["note3"],descreption:"bla bla bla",status:true},
             {name:"Youtube",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"meow"}],tasks:["task1"],notes:["note1"],descreption:"bla bla bla",status:false},
             {name:"Google",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"lolo"}],tasks:["task"],notes:["note5"],descreption:"bla bla bla",status:false}
+          ] ,// change to all the projects available on the database
 
-          ] // change to all the projects available on the database
+          allUsers:[]
       }
   }
 
-//Methods
+
+//Switches between users tab & project management
 btnChangeTabs = (bool) =>{
     if (bool)
     this.setState({tabOpened:"ManageProjects"})
@@ -54,7 +57,6 @@ closeProjectManageWindow = (event) =>{
 
 }
     
-
 //opens the create project window
 openCreateProjectWindow = () => this.setState({createProjectIsOpen:true})
 
@@ -62,7 +64,16 @@ openCreateProjectWindow = () => this.setState({createProjectIsOpen:true})
 closeCreateProjectWindow = (event) =>{ 
     if (event === "CreateProject" || event.target.id === "FCCreateProject" || event.target.innerText === "CLOSE")
     this.setState({createProjectIsOpen:false})}
+
+
+openCreateAccountWindow = () => this.setState({createAccountIsOpen:true})
         
+
+closeCreateAccountWindow = (event) =>{ 
+    if (event === "CreateAccount" || event.target.id === "FCCreateAccount" || event.target.innerText === "CLOSE")
+    this.setState({createAccountIsOpen:false})}
+
+
 
 //updates the project data based on the event triggered (deadline change, member added...)
 updateProjectData = (eventOrValue,action) =>{
@@ -105,6 +116,19 @@ updateProjectData = (eventOrValue,action) =>{
             //add the new project to the database (replace this)
             this.setState({allProjects:[...this.state.allProjects,eventOrValue]})
             this.closeCreateProjectWindow("CreateProject")
+            setTimeout(() => {
+                alert('Project has been sucessfully created!')
+            }, 300);
+    }
+
+    else if (action === "CreateAccount")
+    {
+            //add the new user to the database (replace this)
+            this.setState({allUsers:[...this.state.allUsers,eventOrValue]})
+            this.closeCreateAccountWindow("CreateAccount")
+            setTimeout(() => {
+                alert('User has been sucessfully created!')
+            }, 300);
     }
         
 
@@ -140,15 +164,16 @@ updateProjectData = (eventOrValue,action) =>{
 
 
     render() {
+        console.log(this.state.allUsers);
         return (
             <div id="CCAdminPage">
-                {/* <FCCreateAccount/> */}
-                {this.state.createProjectIsOpen && <FCCreateProject openCreateProjectWindow= {this.openCreateProjectWindow} closeCreateProjectWindow={this.closeCreateProjectWindow} updateProjectData={this.updateProjectData}/>}
+                {this.state.createAccountIsOpen && <FCCreateAccount closeCreateAccountWindow={this.closeCreateAccountWindow} updateProjectData={this.updateProjectData}/>}
+                {this.state.createProjectIsOpen && <FCCreateProject closeCreateProjectWindow={this.closeCreateProjectWindow} updateProjectData={this.updateProjectData}/>}
                 {this.state.manageProjectIsOpen && <FCManageProject closeProjectManageWindow={this.closeProjectManageWindow} projectManagingAtTheMoment = {this.state.projectManagingAtTheMoment} updateProjectData={this.updateProjectData} />}
                 <div id="CCAdminPageFirstChild">
                 <FCNav btnChangeTabs={this.btnChangeTabs}/>
                 {this.state.tabOpened === "Users"?
-                <Button id="CCAdminPageFirstChildBtn" variant="contained" color="primary" disableElevation>Create Account</Button>:
+                <Button onClick={this.openCreateAccountWindow} id="CCAdminPageFirstChildBtn" variant="contained" color="primary" disableElevation>Create Account</Button>:
                 <Button onClick={this.openCreateProjectWindow} id="CCAdminPageFirstChildBtn" variant="contained" color="primary" disableElevation>Start A Project</Button>}
                 </div>
                 <div id="CCAdminPageSecondChild">

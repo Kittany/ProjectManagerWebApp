@@ -11,14 +11,15 @@ export default class CCAccountAvatarSetup extends Component {
      {
       super(props);
       this.state ={
-        imageSelected:1
+        imageSelected:this.props.newAccount.avatar
 
       }
     }
  
  selectImage = (event) =>{
   
-  this.setState({imageSelected:event.target.name})
+  this.setState({imageSelected:event.target.name},() => {this.props.setNewAccount(prevState => ({...prevState,avatar:this.state.imageSelected}))})
+  
 
 }
  
