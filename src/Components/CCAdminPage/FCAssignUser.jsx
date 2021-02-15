@@ -63,7 +63,7 @@ export default function FCAssignUser(props) {
         const t = users.map((user) => user == currentUsername ? user.projects.push(projectName) : user)
         const r = allProjects.map((project) => project.name == projectName ? project.users.push(currentUsername) : project)
         allProjects.forEach((project) => project.name === projectName && project.users.push(currentUsername));
-        // setAllProjects(r)
+        //setAllProjects(r)
         setUsers(t);
         //users.forEach((user) => user === currentUsername && user.projects.push(projectName));
     };
