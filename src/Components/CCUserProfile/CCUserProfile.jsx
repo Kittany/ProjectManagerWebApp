@@ -11,7 +11,6 @@ export default class CCUserProfile extends Component {
     super(props);
     this.state = {
       userInput: "",
-      userName: "" /*this should be equal to current user from the DB */,
       users: ["3bood", "momo", "fofo"],
     };
   }
@@ -47,13 +46,13 @@ export default class CCUserProfile extends Component {
 
         <div id="CCUserProfileSecondChild">
           <div id="CCUserProfileSecondChildLeftChild">
-            <FCHotWindow userName={this.state.userName} />
+            <FCHotWindow userName={this.state.userInput} />
             {/* sends user name to childer and get the rest of data from the database by this unic username */}
-            <FCUserStatics userName={this.state.userName} />
+            <FCUserStatics userName={this.state.userInput} />
           </div>
           <div id="CCUserProfileSecondChildRightChild">
-            <FCUserFullDetails userName={this.state.userName} />
-            <FCUserProfileProjects userName={this.state.userName} />
+            <FCUserFullDetails userName={this.state.userInput} />
+            <FCUserProfileProjects userName={this.state.userInput} />
           </div>
         </div>
       </div>

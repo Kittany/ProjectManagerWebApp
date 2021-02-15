@@ -35,7 +35,11 @@ signOut = () => sessionStorage.clear()
 
 
 getAllUsersInDatabase = () =>  JSON.parse(localStorage.getItem('users'))
+
 getCurrentUser = () => JSON.parse(sessionStorage.getItem('currentUser')) === null? null : JSON.parse(sessionStorage.getItem('currentUser'))[0]
+
+getSpecificUser = (username) => JSON.parse(localStorage.getItem('users')).filter(user => user.username === username).length === 0? null : JSON.parse(localStorage.getItem('users')).filter(user => user.username === username)
+
 
 
 updateUser(specificUser)

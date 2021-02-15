@@ -53,7 +53,7 @@ export default function FCUser(props) {
           {props.user.role}
         </Typography>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Member
+          {props.user.isAdmin?"Admin":"Member"}
         </Typography>
         <Button size="small" color="primary" variant="outlined" style={{marginTop: "5%"}}>Visit Profile</Button>
         <Button name={props.user.username} onClick={() => handleBtnClick(props.user.username)} size="small" color="secondary" variant="outlined" style={{marginTop: "5%", marginLeft:"5%"}}>Assign</Button>
