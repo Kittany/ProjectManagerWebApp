@@ -1,11 +1,9 @@
-import {Redirect} from 'react-router-dom'
-
 class User{
 
 Create(username,firstName,lastName,email,password,avatar,role,isAdmin,state,address,projects,notes)
 {
 let users = this.getAllUsersInDatabase()
-users.push({username:username.toLowerCase(),firstName:firstName,lastName:lastName,email:email,password:password,avatar:avatar,role:role,isAdmin:isAdmin,state:state,address:address,projects:projects,notes:notes})
+users.push({username:username,firstName:firstName,lastName:lastName,email:email,password:password,avatar:avatar,role:role,isAdmin:isAdmin,state:state,address:address,projects:projects,notes:notes})
 localStorage.setItem('users',JSON.stringify(users))
 }
 
@@ -13,16 +11,16 @@ localStorage.setItem('users',JSON.stringify(users))
 Remove(username)
 {
 let users = this.getAllUsersInDatabase()
-users = users.filter(user => user.username !== username.toLowerCase())
+users = users.filter(user => user.username.toLowerCase() !== username.toLowerCase())
 localStorage.setItem('users',JSON.stringify(users))
 }
 
 signIn(username,password)
 { 
     let users = this.getAllUsersInDatabase()
-    if (users.some(user=> user.username === username.toLowerCase() && user.password === password))
+    if (users.some(user=> user.username.toLowerCase() === username.toLowerCase() && user.password === password))
     {
-        sessionStorage.setItem("currentUser",JSON.stringify(users.filter(user => user.username === username.toLowerCase())))
+        sessionStorage.setItem("currentUser",JSON.stringify(users.filter(user => user.username.toLowerCase() === username.toLowerCase())))
         return true;
     }
 
@@ -52,6 +50,7 @@ updateUser(specificUser)
     {
         users = users.filter(user => user.username !== specificUser.username)
         users.push(specificUser)
+        localStorage.setItem('users',JSON.stringify(users))
     }
 
     else

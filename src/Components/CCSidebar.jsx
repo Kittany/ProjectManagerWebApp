@@ -32,9 +32,9 @@ this.props.history.push('/')
       <nav id="sidebar">
       <div className="p-4 pt-5" id="sidebarTop">
       <div id="userInfo">
-      <img className="img logo rounded-circle mb-3" src={window.location.origin + '/Avatars/1.svg'} width="100%" height="100%" alt=""/> 
-      <p style={{fontWeight:"bold", fontSize:"25px"}}>username</p>
-      <p style={{color:"goldenrod", fontSize:"20px"}}>status</p>     
+      <img className="img logo rounded-circle mb-3" src={User.getCurrentUser().avatar} width="100%" height="100%" alt=""/> 
+      <p style={{fontWeight:"bold", fontSize:"25px"}}>{User.getCurrentUser().username}</p>
+      <p style={{color:"goldenrod", fontSize:"20px"}}>{User.getCurrentUser().isAdmin?"Admin":"Member"}</p>     
       </div>
         <ul className="list-unstyled components mb-5">
           <li onClick={e => this.changeSelected("/projectmanager/userprojects")} className={this.state.selected === "/projectmanager/userprojects"?"active":null}>

@@ -9,6 +9,7 @@ import CCUserProfile from './Components/CCUserProfile/CCUserProfile.jsx'
 import FCSettingsPage from './Components/CCSettingsPage/FCSettingsPage';
 import CCChat from './Components/CCChat/CCChat';
 import PrivateRoute from './Context & Private Routes/PrivateRoute.js';
+import AdminRoute from './Context & Private Routes/AdminRoute';
 
 
 
@@ -19,7 +20,7 @@ export default function App() {
         <Route exact path="/" component={CCLogin}/>
         <PrivateRoute path="/projectmanager" component={CCSidebar}/>
         <PrivateRoute path="/projectmanager/userprojects"  component={CCUserProjects}/>
-        <PrivateRoute path="/projectmanager/administrator" component={CCAdminPage}/>
+        <AdminRoute path="/projectmanager/administrator" component={CCAdminPage}/>
         <PrivateRoute path="/projectmanager/profiles" component={CCUserProfile}/>
         <PrivateRoute path="/projectmanager/settings" component={FCSettingsPage}/>
         <PrivateRoute path="/projectmanager/chat" component={CCChat}/>
