@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import "../Styles/CCLogin.css";
 import {withRouter} from 'react-router-dom'
+import User from "../Objects/User";
 
 
 class CCLogin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      emailInput: "",
+      usernameInput: "",
       passwordInput: "",
-      error: "",
-      user: "",
+      errorMessage: "",
     };
   }
 
@@ -19,8 +19,8 @@ class CCLogin extends Component {
   
 
 
-  getEmailAdress = (e) => {
-    this.setState({ emailInput: e.target.value });
+  getUsername = (e) => {
+    this.setState({ usernameInput: e.target.value });
   };
   getPassword = (e) => {
     this.setState({ passwordInput: e.target.value });
@@ -28,9 +28,9 @@ class CCLogin extends Component {
 
 
  handleLogin = async(e)=>{
+  this.setState({errorMessage:""})
   e.preventDefault()
-
-
+  User.signIn(this.state.usernameInput,this.state.passwordInput)?this.props.history.push('/projectmanager/userprojects'):this.setState({errorMessage:"Incorrect information"})
 }
 
 
@@ -50,11 +50,11 @@ class CCLogin extends Component {
           </div>
           <div id="childTwo">
             <form>
-              <p>Email Address</p>
+              <p>Username</p>
               <input
                 type="text"
                 placeholder="Username"
-                onChange={this.getEmailAdress}
+                onChange={this.getUsername}
               ></input>
               <p>Password</p>
               <input
@@ -64,6 +64,7 @@ class CCLogin extends Component {
               ></input>
             </form>
             <button type="button" onClick={this.handleLogin}>Next</button>
+            <h5 style={{color:"red",fontWeight:"bold",fontFamily:"poppins",marginTop:"3%"}}>{this.state.errorMessage}</h5>
           </div>
         </div>
         <div className="loginDivChild">

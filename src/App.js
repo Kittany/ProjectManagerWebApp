@@ -9,18 +9,10 @@ import CCUserProfile from './Components/CCUserProfile/CCUserProfile.jsx'
 import FCSettingsPage from './Components/CCSettingsPage/FCSettingsPage';
 import CCChat from './Components/CCChat/CCChat';
 import PrivateRoute from './Context & Private Routes/PrivateRoute.js';
-import User from './Objects/User'
 
 
 
 export default function App() {
-
-
-const user = User;
-
-console.log(user.getAllUsersInDatabase());
-
-user.signIn("chiefHakam")
 
   return (
         <div id="App">
