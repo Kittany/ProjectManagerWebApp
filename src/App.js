@@ -14,10 +14,13 @@ import User from './Objects/User'
 
 
 export default function App() {
-useEffect(() => {onAppLaunch()}, [])
+
 
 const user = User;
-user.Create('ChiefHakam','Hakam','Mssarwe',"HakamStudent@Gmail.com","123","20","Fullstack",true,"Earth","Home",[],[])
+
+console.log(user.getAllUsersInDatabase());
+
+
 
   return (
         <div id="App">
@@ -35,8 +38,3 @@ user.Create('ChiefHakam','Hakam','Mssarwe',"HakamStudent@Gmail.com","123","20","
 <PrivateRoute exact path/>
 
 
-const onAppLaunch = () =>{
-localStorage.setItem('users',JSON.stringify([]))
-localStorage.setItem('projects',JSON.stringify([]))
-localStorage.setItem('chatApp',JSON.stringify([]))
-}
