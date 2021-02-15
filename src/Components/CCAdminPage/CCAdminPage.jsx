@@ -16,6 +16,7 @@ export default class CCAdminPage extends Component {
   constructor(props){
 
       super(props);
+      let projects = JSON.parse(localStorage.getItem('projects'))
       this.state = {
           tabOpened:"Users",
           manageProjectIsOpen:false,
@@ -24,6 +25,7 @@ export default class CCAdminPage extends Component {
           projectManagingAtTheMoment:null,
           assignUserIsOpen: false,
           currentUserName: "",
+          allProjects:projects,// change to all the projects available on the database
           chartData: {
               labels: ['Skype', 'Google', 'Youtube'], // change this to user project array from DB
               datasets: [
@@ -46,12 +48,29 @@ export default class CCAdminPage extends Component {
 //Switches between users tab & project management
 btnChangeTabs = (bool) =>{
     if (bool){
-    this.setState({tabOpened:"ManageProjects"})}
+    this.setState({tabOpened:"ManageProjects"})
+
+        const allProjectsName = this.state.allProjects.map((project) => project.name)
+        const allProjectStatus = this.state.allProjects.map((project) => project.status)
+        const allProjectTasks = this.state.allProjects.map((project) => project.tasks.length)
+         const projectStatusColor = allProjectStatus.map((status) => status == true ? 'green' : 'red')
+        allProjectTasks.push(0)
+        this.setState(prevState => ({
+            chartData: {
+                labels: allProjectsName, // change this to user project array from DB
+                datasets: [
+                    {
+                        label: "Tasks",
+                        data: allProjectTasks,
+                        backgroundColor: projectStatusColor
+                    }
+                ]
+            }
+        }))
+    }
 
     else 
     this.setState({tabOpened:"Users"})
-
-    console.log(JSON.parse(localStorage.getItem('projects'))[0].value.name);
 }
 
 //opens the project management window
@@ -129,9 +148,7 @@ updateProjectData = (eventOrValue,action) =>{
     {
             Project.Create(eventOrValue)
             this.closeCreateProjectWindow("CreateProject")
-            setTimeout(() => {
-                alert('Project has been sucessfully created!')
-            }, 300);
+            this.setState({allProjects:JSON.parse(localStorage.getItem('projects'))})
     }
 
     else if (action === "CreateAccount")
@@ -210,7 +227,7 @@ updateProjectData = (eventOrValue,action) =>{
                                     options={{ maintainAspectRatio: false }}
                                 />
                         </div>
-                        <FCProjectsAdmin allProjects={JSON.parse(localStorage.getItem('projects'))} openProjectManageWindow={this.openProjectManageWindow}/>
+                        <FCProjectsAdmin allProjects={this.state.allProjects} openProjectManageWindow={this.openProjectManageWindow}/>
                         </div>}
                 </div>
             </div>

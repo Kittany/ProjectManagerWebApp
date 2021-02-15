@@ -3,7 +3,7 @@ class User{
 Create(newUser)
 {
 let users = this.getAllUsersInDatabase()
-users.push({newUser})
+users = [...users,newUser]
 localStorage.setItem('users',JSON.stringify(users))
 }
 
