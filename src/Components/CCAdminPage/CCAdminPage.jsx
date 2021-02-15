@@ -46,29 +46,12 @@ export default class CCAdminPage extends Component {
 //Switches between users tab & project management
 btnChangeTabs = (bool) =>{
     if (bool){
-    this.setState({tabOpened:"ManageProjects"})
-
-        const allProjectsName = JSON.parse(localStorage.getItem('projects')).map((project) => project.name)
-        const allProjectStatus = JSON.parse(localStorage.getItem('projects')).map((project) => project.status)
-        const allProjectTasks = JSON.parse(localStorage.getItem('projects')).map((project) => project.tasks.length)
-         const projectStatusColor = allProjectStatus.map((status) => status == true ? 'green' : 'red')
-        allProjectTasks.push(0)
-        this.setState(prevState => ({
-            chartData: {
-                labels: allProjectsName, // change this to user project array from DB
-                datasets: [
-                    {
-                        label: "Tasks",
-                        data: allProjectTasks,
-                        backgroundColor: projectStatusColor
-                    }
-                ]
-            }
-        }))
-    }
+    this.setState({tabOpened:"ManageProjects"})}
 
     else 
     this.setState({tabOpened:"Users"})
+
+    console.log(JSON.parse(localStorage.getItem('projects'))[0].value.name);
 }
 
 //opens the project management window
