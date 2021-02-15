@@ -27,7 +27,7 @@ export default class CCUsers extends Component {
             <div id="CCUsers">
                 <input onChange={this.changeFilter}type="text" placeholder="Search for a username / role"></input>
              <div id="UserGrid"> {/* this is temp, use map when ready*/}
-                    {this.state.users.filter(user => user.username.toLowerCase().indexOf(this.state.filter) != -1 || user.role.toLowerCase().indexOf(this.state.filter) != -1).map(user => <FCUser user={user} getCurrentUserName={this.props.getCurrentUserName} openAssignUserWindow={this.props.openAssignUserWindow}/>)}
+                    {this.state.users.filter(user => user.username.toLowerCase().indexOf(this.state.filter) != -1 || user.role.toLowerCase().indexOf(this.state.filter) != -1).map(user => user.username != User.getCurrentUser().username && <FCUser user={user} getCurrentUserName={this.props.getCurrentUserName} openAssignUserWindow={this.props.openAssignUserWindow}/>)}
             </div>
             </div>
         )

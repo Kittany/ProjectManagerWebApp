@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import '../../Styles/CCUserProfile.css'
 import { Bar, Line, Pie } from 'react-chartjs-2';
-
-
+import User from '../../Objects/User'
 
 export default class CCUserStatics extends Component {
     constructor(props) {
         super(props);
         this.state = {
             chartData: {
-                labels: ['Skype', 'Google', 'Youtube'], // change this to user project array from DB
+                labels: [User.getSpecificUser(props.userInput)], // change this to user project array from DB
                 datasets: [
                     {
                         label: 'Projects',

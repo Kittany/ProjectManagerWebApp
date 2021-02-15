@@ -3,7 +3,8 @@ class Project{
     async Create(value)
     {
     let projects = await JSON.parse(localStorage.getItem('projects'))
-    projects = [...projects,value]
+    await projects.push(value)
+    console.log(projects);
 
     localStorage.setItem('projects',JSON.stringify(projects))
     }

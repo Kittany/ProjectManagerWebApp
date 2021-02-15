@@ -147,9 +147,12 @@ updateProjectData = (eventOrValue,action) =>{
     else if (action === "CreateProject")
     {
             Project.Create(eventOrValue)
-            
-            
+            this.closeCreateAccountWindow("CreateAccount")
+            setTimeout(() => {
+                alert('User has been sucessfully created!')
+            }, 300);
             this.closeCreateProjectWindow("CreateProject")
+            this.forceUpdate()
             
     }
 
@@ -161,6 +164,7 @@ updateProjectData = (eventOrValue,action) =>{
             setTimeout(() => {
                 alert('User has been sucessfully created!')
             }, 300);
+            this.forceUpdate()
     }
         
 
