@@ -1,9 +1,9 @@
 class User{
 
-Create(username,firstName,lastName,email,password,avatar,role,isAdmin,state,address,projects,notes)
+Create(newUser)
 {
 let users = this.getAllUsersInDatabase()
-users.push({username:username,firstName:firstName,lastName:lastName,email:email,password:password,avatar:avatar,role:role,isAdmin:isAdmin,state:state,address:address,projects:projects,notes:notes})
+users = [...users,newUser]
 localStorage.setItem('users',JSON.stringify(users))
 }
 

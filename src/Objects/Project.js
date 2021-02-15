@@ -1,28 +1,29 @@
 class Project{
 
-    Create(name,openDate,deadline,users,tasks,notes,descreption,status)
+    async Create(value)
     {
-    let projects = this.getAllProjectsInDatabase()
-    projects.push({name:name,openDate:openDate,deadline:deadline,users:users,tasks:tasks,notes:notes,descreption:descreption,status:status})
-    localStorage.setItem('projects',JSON.stringify(users))
+    let projects = await JSON.parse(localStorage.getItem('projects'))
+    projects = [...projects,value]
+
+    localStorage.setItem('projects',JSON.stringify(projects))
     }
     
     
     Remove(projectName)
     {
-    let projects = this.getAllProjectsInDatabase()
+    let projects = JSON.parse(localStorage.getItem('projects'))
     projects = projects.filter(project => project.name.toLowerCase() !== projectName.toLowerCase())
     localStorage.setItem('projects',JSON.stringify(projects))
     }
     
     
-    getAllProjectsInDatabase = () =>  JSON.parse(localStorage.getItem('projects'))
-    getProject = (projectName) => this.getAllProjectsInDatabase().filter(project => project.name === projectName).length === 0? null : this.getAllProjectsInDatabase().filter(project => project.name === projectName)[0] 
+    
+    getProject = (projectName) => JSON.parse(localStorage.getItem('projects')).filter(project => project.name === projectName).length === 0? null : JSON.parse(localStorage.getItem('projects')).filter(project => project.name === projectName)[0] 
     
     
     updateProject(specificProject)
     {
-        let projects = this.getAllProjectsInDatabase()
+        let projects = JSON.parse(localStorage.getItem('projects'))
     
        if (projects.filter(project => project.name === specificProject.name).length !== 0)
         {

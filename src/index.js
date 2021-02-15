@@ -10,10 +10,9 @@ const onAppLaunch = () =>
 {
   localStorage.setItem('users',JSON.stringify([]))
   localStorage.setItem('projects',JSON.stringify([]))
-  localStorage.setItem('chatApp',JSON.stringify([]))
-
+  localStorage.setItem('chat',JSON.stringify([]))
   //Default accounts that we want to start the project with
-  user.Create({ username: 'Hakam', firstName: 'Hakam', lastName: 'Mssarwe', email: "HakamStudent@projectmanager.com", password: "123", avatar: "https://i.postimg.cc/hv3LwnTr/002-man.png", role: "Fullstack", isAdmin: true, state: "Earth", address: "Home", projects:[],notes:[]})
+  user.Create({username: 'Hakam', firstName: 'Hakam', lastName: 'Mssarwe', email: "HakamStudent@projectmanager.com", password: "123", avatar: "https://i.postimg.cc/hv3LwnTr/002-man.png", role: "Fullstack", isAdmin: true, state: "Earth", address: "Home", projects:[],notes:[]})
   user.Create({username: 'Mohamed', firstName: 'Mohamed', lastName: 'Kittany', email: "M_love_1999@projectmanager.com", password: "123", avatar: "https://i.postimg.cc/9FKPYWWX/005-man.png", role: "Fullstack", isAdmin: true, state: "Moon", address: "Home", projects: [], notes: []})
   user.Create({username: 'Shareef', firstName: 'Shareef', lastName: 'Abu-badr', email: "Shareef@projectmanager.com", password: "123", avatar: "https://i.postimg.cc/q7d8Wjh9/011-man.png", role: "Fullstack", isAdmin: false, state: "Mars", address: "Home", projects: [], notes: []})
   user.Create({username: 'Muhamad', firstName: 'Wattad', lastName: 'Mssarwe', email: "Muhamad@projectmanager.com", password: "123", avatar: "https://i.postimg.cc/h43VKSQ8/013-man.png", role: "Fullstack", isAdmin: false, state: "Jupiter", address: "Home", projects: [], notes: []})
