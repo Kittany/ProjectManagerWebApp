@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import '../../../Styles/CCAdminPage.css'
 import FCSmallUser from '../CreateProject/FCSmallUser.jsx'
+import User from '../../../Objects/User'
 
 export default class CCAddMembersToProject extends Component {
     constructor(props)
     {
         super(props);
+        let getUsers = User.getAllUsersInDatabase()
         this.state = {
             /*change this to users in database, not temp users*/
-            users: [{username:"3bbod",role:"FullStack",avatar:"1"},{username:"meow",role:"Backend",avatar:"2"},{username:"lolo",role:"Designer",avatar:"3"}],
+            users: getUsers,
             filter:"",
             
         }

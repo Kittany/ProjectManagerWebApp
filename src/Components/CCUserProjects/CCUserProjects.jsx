@@ -6,9 +6,14 @@ import FCNotes from './FCNotes.jsx'
 import FCProjects from './FCProjects.jsx'
 import FCManageProject from '../CCManageProject/FCManageProject.jsx'
 import CCCreateNoteWindow from './CreateNote/CCCreateNoteWindow.jsx'
+import User from '../../Objects/User'
+import Project from '../../Objects/Project'
 
 export default class CCUserProjects extends Component {
   constructor(props){
+    let projects = Project.getAllProjectsInDatabase();
+    let user = User.getCurrentUser();
+
       super(props);
       this.state = {
           tabOpened:"Notes",
@@ -16,20 +21,15 @@ export default class CCUserProjects extends Component {
           createNoteIsOpen:false,
           manageProjectIsOpen:false,
           projectManagingAtTheMoment:null,
-         
           
-          //useContext: (it will get all the projects for this specific user)
+          
           //userProjects: allProjectsInDatabase.filter((project) => userInDatabase.projects.some((userProject) => project.name === userProject.name))
-          userNotes:[], // this.props.user.notes, this array should begin with user notes by default (add it after you finish the database)
-          userProjects:[
-            {name:"Skype",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"lolo"}],tasks:["task1"],notes:["note1"],descreption:"bla bla bla",status:true},
-            {name:"Facebook",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:true},
-            {name:"Youtube",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:false},
-            {name:"Google",tasks:"15/19",openDate:"2020-05-30",deadline:"2021-10-20",users:[],descreption:"bla bla bla",status:false}
+          userNotes:User.getCurrentUser().notes, // this.props.user.notes, this array should begin with user notes by default (add it after you finish the database)
+          userProjects: projects.filter((project) => user.projects.some((userProject) => project.name === userProject.name))
 
-          ] 
-      
         }
+
+        console.log(this.state.userProjects);
   }
 
 //Switch between the notes and the projects tab

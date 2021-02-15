@@ -47,14 +47,11 @@ updateUser(specificUser)
     let users = this.getAllUsersInDatabase()
 
     if (this.getCurrentUser().username === specificUser.username)
-        sessionStorage.setItem('currentUser',JSON.stringify([specificUser]))   
-
-   
-    else if (users.filter(user => user.username === specificUser.username).length !== 0)
     {
+        sessionStorage.setItem('currentUser',JSON.stringify([specificUser]))  
         users = users.filter(user => user.username !== specificUser.username)
         users.push(specificUser)
-        localStorage.setItem('users',JSON.stringify(users))
+        localStorage.setItem('users',JSON.stringify(users)) 
     }
 
     else

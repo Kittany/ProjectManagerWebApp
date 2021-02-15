@@ -7,7 +7,6 @@ import FCProjectsAdmin from './FCProjectsAdmin.jsx'
 import FCCreateAccount from './CreateAccount/FCCreateAccount.jsx'
 import FCCreateProject from './CreateProject/FCCreateProject.jsx'
 import FCManageProject from '../CCManageProject/FCManageProject.jsx'
-import FCAssignUser from "./FCAssignUser";
 import { Bar, Line, Pie } from 'react-chartjs-2';
 import Project from '../../Objects/Project'
 import User from '../../Objects/User'
@@ -147,12 +146,13 @@ updateProjectData = (eventOrValue,action) =>{
     else if (action === "CreateProject")
     {
             Project.Create(eventOrValue)
-            this.closeCreateAccountWindow("CreateAccount")
+            this.forceUpdate()
+            this.closeCreateProjectWindow("CreateProject")
             setTimeout(() => {
                 alert('User has been sucessfully created!')
-            }, 300);
-            this.closeCreateProjectWindow("CreateProject")
-            this.forceUpdate()
+            }, 1000);
+    
+            
             
     }
 
@@ -160,11 +160,13 @@ updateProjectData = (eventOrValue,action) =>{
     {
 
             User.Create(eventOrValue)
+             
             this.closeCreateAccountWindow("CreateAccount")
+            this.forceUpdate()
             setTimeout(() => {
                 alert('User has been sucessfully created!')
-            }, 300);
-            this.forceUpdate()
+            }, 1000);
+            
     }
         
 
@@ -211,8 +213,6 @@ updateProjectData = (eventOrValue,action) =>{
     render() {
         return (
             <div id="CCAdminPage">
-                {this.state.assignUserIsOpen && (<FCAssignUser username={this.state.currentUserName} closeAssignUserWindow={this.closeAssignUserWindow}/>
-                )}
                 {this.state.createAccountIsOpen && <FCCreateAccount closeCreateAccountWindow={this.closeCreateAccountWindow} updateProjectData={this.updateProjectData}/>}
                 {this.state.createProjectIsOpen && <FCCreateProject closeCreateProjectWindow={this.closeCreateProjectWindow} updateProjectData={this.updateProjectData}/>}
                 {this.state.manageProjectIsOpen && <FCManageProject closeProjectManageWindow={this.closeProjectManageWindow} projectManagingAtTheMoment = {this.state.projectManagingAtTheMoment} updateProjectData={this.updateProjectData} />}

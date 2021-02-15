@@ -24,7 +24,7 @@ export default class CCProfileSettings extends Component {
             return;
         }
  
-        console.log(dataFromChild.target.src)
+
 
         this.props.setTempAccountSettings(prevState => ({...prevState,avatar:dataFromChild.target.src}))
         this.setState({imageSelected:dataFromChild.target.src,imageTab:false}) 

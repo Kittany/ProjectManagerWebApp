@@ -18,7 +18,7 @@ class Project{
     }
     
     
-    
+    getAllProjectsInDatabase = () =>  JSON.parse(localStorage.getItem('projects'))
     getProject = (projectName) => JSON.parse(localStorage.getItem('projects')).filter(project => project.name === projectName).length === 0? null : JSON.parse(localStorage.getItem('projects')).filter(project => project.name === projectName)[0] 
     
     
