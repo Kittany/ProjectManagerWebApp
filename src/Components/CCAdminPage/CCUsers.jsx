@@ -7,7 +7,6 @@ export default class CCUsers extends Component {
     constructor(props)
     {
         let users = JSON.parse(localStorage.getItem('users'));
-        console.log(users);
         super(props);
         this.state = {
             users:users,
