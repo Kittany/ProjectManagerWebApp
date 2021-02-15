@@ -1,4 +1,4 @@
-#CCAdminPage{
+#CCAdminPage {
     position: absolute;
     right: 0;
     background-color: rgb(238, 238, 238);
@@ -10,37 +10,36 @@
     justify-content: center;
     overflow: hidden;
 }
+
 /*-----------------------------------Nav-----------------------------------*/
-#CCAdminPageFirstChild{
+
+#CCAdminPageFirstChild {
     width: 100%;
     height: 10%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    font-family: serif;  
+    font-family: serif;
     background-color: #eee;
 }
 
-#CCAdminPageFirstChildBtn{
-margin-right: 3%;
-margin-top: 3%;
-font-family: "Poppins";
-align-self: center;
+#CCAdminPageFirstChildBtn {
+    margin-right: 3%;
+    margin-top: 3%;
+    font-family: "Poppins";
+    align-self: center;
 }
 
-
-
 /*-----------------------------------Child Components Render-----------------------------------*/
-#CCAdminPageSecondChild{
+
+#CCAdminPageSecondChild {
     width: 100%;
     height: 90%;
     background-color: rgb(238, 238, 238);
     transition: 5s ease-in;
-
-
 }
 
-#CCUsers{
+#CCUsers {
     width: 100%;
     height: 100%;
     display: flex;
@@ -49,16 +48,14 @@ align-self: center;
     flex-direction: column;
 }
 
-#CCUsers input{
+#CCUsers input {
     margin-right: 3%;
     margin-top: 3%;
     font-family: "Poppins";
     width: 30%;
 }
 
-
-
-#UserGrid{
+#UserGrid {
     width: 100%;
     height: 95%;
     display: grid;
@@ -66,25 +63,20 @@ align-self: center;
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    padding:30px;
+    padding: 30px;
     overflow-y: scroll;
-      
 }
 
-#imageContainer{
+#imageContainer {
     width: 20%;
     height: 50%;
     align-self: center;
     margin-bottom: 0;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     background-position: center center;
+}
 
-
-}  
-
-
-
-#ManageProjectsTab{
+#ManageProjectsTab {
     width: 100%;
     height: 100%;
     display: flex;
@@ -93,101 +85,87 @@ align-self: center;
     flex-direction: column;
 }
 
-#adminStatics{
+#adminStatics {
     height: 35%;
     width: 100%;
-    padding:30px;
+    padding: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#CCProjectsAdmin{
+#CCProjectsAdmin {
     height: 60%;
     width: 100%;
-    padding:30px;
+    padding: 30px;
     overflow-y: scroll;
 }
 
-
 /*----------------------------------- CREATE ACCOUNT -----------------------------------*/
 
-#FCCreateAccount{
+#FCCreateAccount {
     font-family: "poppins";
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    position:fixed;
+    position: fixed;
     left: 0;
     z-index: 1;
     background: transparent;
     backdrop-filter: blur(4px);
-    
 }
 
 #FCCreateAccoutChild {
-border-radius: 5px;
-user-select: none;
-border:1px solid rgb(122, 151, 255);
-
+    border-radius: 5px;
+    user-select: none;
+    border: 1px solid rgb(122, 151, 255);
 }
 
-
-#CCAcountAvatarSetupGridContainer{
-display: flex;
-justify-content: center;
-align-items: center;
-width: 100%;
-height: 100%;
-flex-direction: column;
-
+#CCAcountAvatarSetupGridContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
 }
 
-
-#CCAcountAvatarSetupGridContainer div{
+#CCAcountAvatarSetupGridContainer div {
     width: 100%;
     display: flex;
     justify-content: space-around;
     margin-bottom: 3%;
-
 }
 
-#CCAcountAvatarSetupGridContainer div img{
-cursor: pointer;
+#CCAcountAvatarSetupGridContainer div img {
+    cursor: pointer;
 }
-
-
 
 /*----------------------------------- CREATE PROJECT -----------------------------------*/
 
-#FCCreateProject{
+#FCCreateProject {
     font-family: "poppins";
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    position:fixed;
+    position: fixed;
     left: 0;
     z-index: 1;
     background: transparent;
     backdrop-filter: blur(4px);
-    
 }
 
-#FCCreateProjectChild{
-border-radius: 5px;
-user-select: none;
-border:1px solid rgb(122, 151, 255);
-
+#FCCreateProjectChild {
+    border-radius: 5px;
+    user-select: none;
+    border: 1px solid rgb(122, 151, 255);
 }
 
-
-
-#CCAddMembersToProject{
-
+#CCAddMembersToProject {
     width: 100%;
     height: 100%;
     display: flex;
@@ -196,9 +174,7 @@ border:1px solid rgb(122, 151, 255);
     flex-direction: column;
 }
 
-
-#CCAddMembersToProject input{
-
+#CCAddMembersToProject input {
     margin-right: 3%;
     margin-top: 3%;
     font-family: "Poppins";
@@ -206,10 +182,37 @@ border:1px solid rgb(122, 151, 255);
     margin-bottom: 5%;
 }
 
-.CCAddMembersToProjectUserGrid{
+.CCAddMembersToProjectUserGrid {
     width: 100%;
     overflow-y: scroll;
     display: inline-block;
-    height: 40vh;
+    height: 4 0vh;
 }
 
+/*----------------------------------- CREATE Assign tab -----------------------------------*/
+
+#FCAssignUser {
+    font-family: "poppins";
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background: transparent;
+    backdrop-filter: blur(4px);
+}
+
+#FCAssignUserChild {
+    width: 40%;
+    height: 60%;
+    border-radius: 5px;
+    user-select: none;
+    background-color: #007bff;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}

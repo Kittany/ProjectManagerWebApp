@@ -7,6 +7,7 @@ import FCProjectsAdmin from './FCProjectsAdmin.jsx'
 import FCCreateAccount from './CreateAccount/FCCreateAccount.jsx'
 import FCCreateProject from './CreateProject/FCCreateProject.jsx'
 import FCManageProject from '../CCManageProject/FCManageProject.jsx'
+import FCAssignUser from "./FCAssignUser";
 import { Bar, Line, Pie } from 'react-chartjs-2';
 
 export default class CCAdminPage extends Component {
@@ -21,6 +22,8 @@ export default class CCAdminPage extends Component {
           createProjectIsOpen:false,
           createAccountIsOpen:false,
           projectManagingAtTheMoment:null,
+          assignUserIsOpen: false,
+          currentUserName: "",
           allProjects:[
               { name: "Skype", openDate: "2020-05-30", deadline: "2021-10-20", users: [{ username: "3bbod" }, { username: "lolo" }], tasks: ["task1", "task2", "task3"],notes:["note1"],descreption:"bla bla bla",status:true},
               { name: "Facebook", openDate: "2020-05-30", deadline: "2021-10-20", users: [{ username: "meow" }, { username: "lolo" }], tasks: ["task1", "task2", "task3", "task4"],notes:["note3"],descreption:"bla bla bla",status:true},
@@ -193,12 +196,23 @@ updateProjectData = (eventOrValue,action) =>{
     this.setState({projectManagingAtTheMoment:tempProject})
 
 }
+    getCurrentUserName = (username) => {
+        this.setState({ currentUserName: username });
+    };
 
+    openAssignUserWindow = () => this.setState({ assignUserIsOpen: true });
+
+    closeAssignUserWindow = (e) => {
+        if (e.target.id === "FCAssignUser")
+            this.setState({ assignUserIsOpen: false });
+    };
 
 
     render() {
         return (
             <div id="CCAdminPage">
+                {this.state.assignUserIsOpen && (<FCAssignUser username={this.state.currentUserName} closeAssignUserWindow={this.closeAssignUserWindow}/>
+                )}
                 {this.state.createAccountIsOpen && <FCCreateAccount closeCreateAccountWindow={this.closeCreateAccountWindow} updateProjectData={this.updateProjectData}/>}
                 {this.state.createProjectIsOpen && <FCCreateProject closeCreateProjectWindow={this.closeCreateProjectWindow} updateProjectData={this.updateProjectData}/>}
                 {this.state.manageProjectIsOpen && <FCManageProject closeProjectManageWindow={this.closeProjectManageWindow} projectManagingAtTheMoment = {this.state.projectManagingAtTheMoment} updateProjectData={this.updateProjectData} />}
@@ -209,7 +223,7 @@ updateProjectData = (eventOrValue,action) =>{
                 <Button onClick={this.openCreateProjectWindow} id="CCAdminPageFirstChildBtn" variant="contained" color="primary" disableElevation>Start A Project</Button>}
                 </div>
                 <div id="CCAdminPageSecondChild">
-                    {this.state.tabOpened === "Users"?<CCUsers users={this.props.users}/>:
+                    {this.state.tabOpened === "Users" ? <CCUsers users={this.props.users} getCurrentUserName={this.getCurrentUserName} openAssignUserWindow={this.openAssignUserWindow}/>:
                     <div id="ManageProjectsTab">
                         <div id="adminStatics">
                                 <Bar
