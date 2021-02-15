@@ -147,8 +147,10 @@ updateProjectData = (eventOrValue,action) =>{
     else if (action === "CreateProject")
     {
             Project.Create(eventOrValue)
+            
+            
             this.closeCreateProjectWindow("CreateProject")
-            this.setState({allProjects:JSON.parse(localStorage.getItem('projects'))})
+            
     }
 
     else if (action === "CreateAccount")
