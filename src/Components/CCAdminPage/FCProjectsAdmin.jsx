@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import Project from '../../Objects/Project'
 
 const useStyles = makeStyles({
   table: {
@@ -21,9 +22,8 @@ const useStyles = makeStyles({
 export default function FCProjectsAdmin(props) {
   const classes = useStyles();
 
-
 //Add manage button for each project                               
-props.allProjects.forEach(project => project.action = 
+JSON.parse(localStorage.getItem('projects')).forEach(project => project.action = 
   <Button onClick={e => props.openProjectManageWindow(project)}   variant="outlined" color="primary" disableElevation>Manage</Button>)
 
 
@@ -44,7 +44,7 @@ props.allProjects.forEach(project => project.action =
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.allProjects.map((project) => (
+          {JSON.parse(localStorage.getItem('projects')).map((project) => (
             <TableRow key={project.name}>
               <TableCell align="center" style={{fontFamily:"poppins"}}>{project.name}</TableCell>
               <TableCell align="center" style={{fontFamily:"poppins"}}>{project.tasks.length}</TableCell>

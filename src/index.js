@@ -12,8 +12,9 @@ const onAppLaunch = () =>
   localStorage.setItem('projects',JSON.stringify([]))
   localStorage.setItem('chatApp',JSON.stringify([]))
 
+
   //Default accounts that we want to start the project with
-  user.Create('Hakam','Hakam','Mssarwe',"HakamStudent@projectmanager.com","123","https://i.postimg.cc/hv3LwnTr/002-man.png","Fullstack",true,"Earth","Home",[],[])
+  user.Create()
   user.Create('Mohamed','Mohamed','Kittany',"M_love_1999@projectmanager.com","123","https://i.postimg.cc/9FKPYWWX/005-man.png","Fullstack",true,"Moon","Home",[],[])
   user.Create('Shareef','Shareef','Abu-badr',"Shareef@projectmanager.com","123","https://i.postimg.cc/q7d8Wjh9/011-man.png","Fullstack",false,"Mars","Home",[],[])
   user.Create('Muhamad','Wattad','Mssarwe',"Muhamad@projectmanager.com","123","https://i.postimg.cc/h43VKSQ8/013-man.png","Fullstack",false,"Jupiter","Home",[],[])

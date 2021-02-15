@@ -10,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
 import FCSetProjectDescreption from './FCSetProjectDescreption';
 import CCAddTasksToProject from './CCAddTasksToProject';
 import CCAddMembersToProject from './CCAddMembersToProject';
-import { Alert, AlertTitle } from '@material-ui/lab';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {

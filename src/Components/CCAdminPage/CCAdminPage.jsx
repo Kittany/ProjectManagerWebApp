@@ -9,11 +9,11 @@ import FCCreateProject from './CreateProject/FCCreateProject.jsx'
 import FCManageProject from '../CCManageProject/FCManageProject.jsx'
 import FCAssignUser from "./FCAssignUser";
 import { Bar, Line, Pie } from 'react-chartjs-2';
+import Project from '../../Objects/Project'
+import User from '../../Objects/User'
 
 export default class CCAdminPage extends Component {
   constructor(props){
-
-
 
       super(props);
       this.state = {
@@ -24,12 +24,6 @@ export default class CCAdminPage extends Component {
           projectManagingAtTheMoment:null,
           assignUserIsOpen: false,
           currentUserName: "",
-          allProjects:[
-              { name: "Skype", openDate: "2020-05-30", deadline: "2021-10-20", users: [{ username: "3bbod" }, { username: "lolo" }], tasks: ["task1", "task2", "task3"],notes:["note1"],descreption:"bla bla bla",status:true},
-              { name: "Facebook", openDate: "2020-05-30", deadline: "2021-10-20", users: [{ username: "meow" }, { username: "lolo" }], tasks: ["task1", "task2", "task3", "task4"],notes:["note3"],descreption:"bla bla bla",status:true},
-            {name:"Youtube",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"meow"}],tasks:["task1","task2"],notes:["note1"],descreption:"bla bla bla",status:false},
-              { name: "Google", openDate: "2020-05-30", deadline: "2021-10-20", users: [{ username: "3bbod" }, { username: "lolo" }], tasks: ["task", "task2"],notes:["note1"],descreption:"bla bla bla",status:false}
-          ] ,// change to all the projects available on the database
           chartData: {
               labels: ['Skype', 'Google', 'Youtube'], // change this to user project array from DB
               datasets: [
@@ -54,9 +48,9 @@ btnChangeTabs = (bool) =>{
     if (bool){
     this.setState({tabOpened:"ManageProjects"})
 
-        const allProjectsName = this.state.allProjects.map((project) => project.name)
-        const allProjectStatus = this.state.allProjects.map((project) => project.status)
-        const allProjectTasks = this.state.allProjects.map((project) => project.tasks.length)
+        const allProjectsName = JSON.parse(localStorage.getItem('projects')).map((project) => project.name)
+        const allProjectStatus = JSON.parse(localStorage.getItem('projects')).map((project) => project.status)
+        const allProjectTasks = JSON.parse(localStorage.getItem('projects')).map((project) => project.tasks.length)
          const projectStatusColor = allProjectStatus.map((status) => status == true ? 'green' : 'red')
         allProjectTasks.push(0)
         this.setState(prevState => ({
@@ -86,7 +80,8 @@ closeProjectManageWindow = (event) =>{
         if (event.target.id === "FCManageProject")
         this.setState({manageProjectIsOpen: false})
 
-        //update the project values in the database with the new ones here using the this.state.projectManagingAtTheMoment
+        //Update project
+        Project.updateProject(this.state.projectManagingAtTheMoment)
         
 
 
@@ -149,8 +144,7 @@ updateProjectData = (eventOrValue,action) =>{
 
     else if (action === "CreateProject")
     {
-            //add the new project to the database (replace this)
-            this.setState({allProjects:[...this.state.allProjects,eventOrValue]})
+            Project.Create(eventOrValue)
             this.closeCreateProjectWindow("CreateProject")
             setTimeout(() => {
                 alert('Project has been sucessfully created!')
@@ -159,8 +153,8 @@ updateProjectData = (eventOrValue,action) =>{
 
     else if (action === "CreateAccount")
     {
-            //add the new user to the database (replace this)
-            this.setState({allUsers:[...this.state.allUsers,eventOrValue]})
+
+            User.Create(eventOrValue)
             this.closeCreateAccountWindow("CreateAccount")
             setTimeout(() => {
                 alert('User has been sucessfully created!')
@@ -233,7 +227,7 @@ updateProjectData = (eventOrValue,action) =>{
                                     options={{ maintainAspectRatio: false }}
                                 />
                         </div>
-                        <FCProjectsAdmin allProjects={this.state.allProjects} openProjectManageWindow={this.openProjectManageWindow}/>
+                        <FCProjectsAdmin allProjects={JSON.parse(localStorage.getItem('projects'))} openProjectManageWindow={this.openProjectManageWindow}/>
                         </div>}
                 </div>
             </div>
