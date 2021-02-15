@@ -9,18 +9,21 @@ import CCUserProfile from './Components/CCUserProfile/CCUserProfile.jsx'
 import FCSettingsPage from './Components/CCSettingsPage/FCSettingsPage';
 import CCChat from './Components/CCChat/CCChat';
 import PrivateRoute from './Context & Private Routes/PrivateRoute.js';
-import AdminRoute from './Context & Private Routes/AdminRoute';
+import User from './Objects/User'
 
 
 
 export default function App() {
+
+const user = User;
+
 
   return (
         <div id="App">
         <Route exact path="/" component={CCLogin}/>
         <PrivateRoute path="/projectmanager" component={CCSidebar}/>
         <PrivateRoute path="/projectmanager/userprojects"  component={CCUserProjects}/>
-        <AdminRoute path="/projectmanager/administrator" component={CCAdminPage}/>
+        <PrivateRoute path="/projectmanager/administrator" component={CCAdminPage}/>
         <PrivateRoute path="/projectmanager/profiles" component={CCUserProfile}/>
         <PrivateRoute path="/projectmanager/settings" component={FCSettingsPage}/>
         <PrivateRoute path="/projectmanager/chat" component={CCChat}/>
@@ -31,3 +34,8 @@ export default function App() {
 <PrivateRoute exact path/>
 
 
+const onAppLaunch = () =>{
+localStorage.setItem('users',JSON.stringify([]))
+
+
+}
