@@ -22,10 +22,10 @@ export default class CCAdminPage extends Component {
           createAccountIsOpen:false,
           projectManagingAtTheMoment:null,
           allProjects:[
-            {name:"Skype",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"lolo"}],tasks:["task1"],notes:["note1"],descreption:"bla bla bla",status:true},
-            {name:"Facebook",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"meow"},{username:"lolo"}],tasks:["task2"],notes:["note3"],descreption:"bla bla bla",status:true},
-            {name:"Youtube",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"meow"}],tasks:["task1"],notes:["note1"],descreption:"bla bla bla",status:false},
-            {name:"Google",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"lolo"}],tasks:["task"],notes:["note5"],descreption:"bla bla bla",status:false}
+              { name: "Skype", openDate: "2020-05-30", deadline: "2021-10-20", users: [{ username: "3bbod" }, { username: "lolo" }], tasks: ["task1", "task2", "task3"],notes:["note1"],descreption:"bla bla bla",status:true},
+              { name: "Facebook", openDate: "2020-05-30", deadline: "2021-10-20", users: [{ username: "meow" }, { username: "lolo" }], tasks: ["task1", "task2", "task3", "task4"],notes:["note3"],descreption:"bla bla bla",status:true},
+            {name:"Youtube",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"meow"}],tasks:["task1","task2"],notes:["note1"],descreption:"bla bla bla",status:false},
+              { name: "Google", openDate: "2020-05-30", deadline: "2021-10-20", users: [{ username: "3bbod" }, { username: "lolo" }], tasks: ["task", "task2"],notes:["note1"],descreption:"bla bla bla",status:false}
           ] ,// change to all the projects available on the database
           chartData: {
               labels: ['Skype', 'Google', 'Youtube'], // change this to user project array from DB
@@ -53,16 +53,16 @@ btnChangeTabs = (bool) =>{
 
         const allProjectsName = this.state.allProjects.map((project) => project.name)
         const allProjectStatus = this.state.allProjects.map((project) => project.status)
-        const projectStatusColor = allProjectStatus.map((status) => status == true ? 'green' : 'black')
-        console.log(allProjectsName);
-        console.log(allProjectStatus);
+        const allProjectTasks = this.state.allProjects.map((project) => project.tasks.length)
+         const projectStatusColor = allProjectStatus.map((status) => status == true ? 'green' : 'red')
+        allProjectTasks.push(0)
         this.setState(prevState => ({
             chartData: {
                 labels: allProjectsName, // change this to user project array from DB
                 datasets: [
                     {
-                        label: "Projects",
-                        data: allProjectStatus,
+                        label: "Tasks",
+                        data: allProjectTasks,
                         backgroundColor: projectStatusColor
                     }
                 ]
