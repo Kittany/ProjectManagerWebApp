@@ -9,11 +9,15 @@ import CCUserProfile from './Components/CCUserProfile/CCUserProfile.jsx'
 import FCSettingsPage from './Components/CCSettingsPage/FCSettingsPage';
 import CCChat from './Components/CCChat/CCChat';
 import PrivateRoute from './Context & Private Routes/PrivateRoute.js';
-
+import User from './Objects/User'
 
 
 
 export default function App() {
+useEffect(() => {onAppLaunch()}, [])
+
+const user = User;
+user.Create('ChiefHakam','Hakam','Mssarwe',"HakamStudent@Gmail.com","123","20","Fullstack",true,"Earth","Home",[],[])
 
   return (
         <div id="App">
@@ -29,3 +33,10 @@ export default function App() {
 }
 
 <PrivateRoute exact path/>
+
+
+const onAppLaunch = () =>{
+localStorage.setItem('users',JSON.stringify([]))
+localStorage.setItem('projects',JSON.stringify([]))
+localStorage.setItem('chatApp',JSON.stringify([]))
+}
