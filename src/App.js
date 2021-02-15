@@ -12,7 +12,6 @@ import PrivateRoute from './Context & Private Routes/PrivateRoute.js';
 
 
 
-
 export default function App() {
 
   return (
@@ -29,3 +28,5 @@ export default function App() {
 }
 
 <PrivateRoute exact path/>
+
+

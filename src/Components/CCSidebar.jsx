@@ -2,7 +2,7 @@ import { Button } from '@material-ui/core';
 import React, { Component } from 'react'
 import '../Styles/CCSidebar.css'
 import {withRouter} from 'react-router-dom'
-
+import User from './../Objects/User'
 
 
 
@@ -22,7 +22,10 @@ this.setState({selected:tabName},() => {this.props.history.push(tabName)})
 }
 
 
-
+handleLogout = () =>{
+User.signOut()
+this.props.history.push('/')
+}
 
   render(props) {
     return (
