@@ -9,7 +9,7 @@ export default function CCSettingsPage(props) {
 
     const [tabOpened,setTabOpened] = useState("ProfileSettings")
     //replace this with the user signed in
-    const [tempAccountSettings,setTempAccountSettings] = useState({username:"tempUser",firstName:"3bbod",lastName:"meow",email:"momo3bbod@gmail.com",password:"123",avatar:"1",role:"Fullstack",isAdmin:false,state:"Afghanistan",address:"Baka algrbiyya",projects:[],notes:[]})
+    const [tempAccountSettings, setTempAccountSettings] = useState({ username: "tempUser", firstName: "3bbod", lastName: "meow", email: "momo3bbod@gmail.com", password: "123", avatar:"https://postimg.cc/JyjhQbN",role:"Fullstack",isAdmin:false,state:"Afghanistan",address:"Baka algrbiyya",projects:[],notes:[]})
     const [profilePageErrorMessage,setProfilePageErrorMessage] = useState("")
     const [securityPageInput,setSecurityPageInput] = useState({password:tempAccountSettings.password,confirmPassword:tempAccountSettings.password,email:tempAccountSettings.email,confirmEmail:tempAccountSettings.email,errorMessage:""})
 
