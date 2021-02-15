@@ -20,7 +20,7 @@ const user = User;
 
 console.log(user.getAllUsersInDatabase());
 
-
+user.signIn("chiefHakam")
 
   return (
         <div id="App">
