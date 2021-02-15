@@ -24,9 +24,10 @@ export default class CCProfileSettings extends Component {
             return;
         }
  
+        console.log(dataFromChild.target.src)
 
-        this.props.setTempAccountSettings(prevState => ({...prevState,avatar:dataFromChild.target.name}))
-        this.setState({imageSelected:dataFromChild.target.name,imageTab:false}) 
+        this.props.setTempAccountSettings(prevState => ({...prevState,avatar:dataFromChild.target.src}))
+        this.setState({imageSelected:dataFromChild.target.src,imageTab:false}) 
 
  
     }
@@ -43,7 +44,7 @@ export default class CCProfileSettings extends Component {
                 {this.state.imageTab && <CCImageTab selectImage={this.selectImage} imageSelected={this.state.imageSelected}/> }
 
                 <div id="CCProfileSettingsFirstChild" style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
-                  <img onClick={this.openImageTab} src={`Avatars/${this.state.imageSelected}.svg`} with="50%" height="50%" alt="" style={{cursor:"pointer"}}/>
+              <img onClick={this.openImageTab} src={this.props.tempAccountSettings.avatar} with="50%" height="50%" alt="" style={{cursor:"pointer"}}/>
                   <p style={{fontSize:30, userSelect:"none"}}>Click on the image to change your avatar</p>
                   </div>
                 <div id="CCProfileSettingsSecondChild">
