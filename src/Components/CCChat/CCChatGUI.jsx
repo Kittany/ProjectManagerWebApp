@@ -14,7 +14,7 @@ export default class CCChatGUI extends Component {
   sendMessage = () => {
     let messages = [...this.state.messages, this.state.value];
 
-    console.log("MESSAGES", messages);
+
 
     this.setState(
       {

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "../Styles/CCLogin.css";
-import fire from "../FireBase/firebase";
-import "firebase/auth"
-import CCSidebar from "./CCSidebar";
-export default class CCLogin extends Component {
+import {withRouter} from 'react-router-dom'
+
+
+class CCLogin extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,47 +14,29 @@ export default class CCLogin extends Component {
     };
   }
 
-  componentDidMount = () => {
-    this.authListener();
-  }
 
-  authListener = () => {
-    fire.auth().onAuthStateChanged((user) => {
-      console.log(user);
-      if (user) this.setState({ user });
-      else {
-        this.setState({ user: null });
-      }
-    });
-  };
 
-  btnLogin = (e) => {
-    e.preventDefault();
-    fire
-      .auth()
-      .signInWithEmailAndPassword(
-        this.state.emailInput,
-        this.state.passwordInput
-      )
-      .then((u) => {
-        alert("YES")
-      })
-      .catch((error) => {
-        console.log("NO");
-      });
+  
 
-  };
 
   getEmailAdress = (e) => {
     this.setState({ emailInput: e.target.value });
-    console.log(this.state.elem);
   };
   getPassword = (e) => {
     this.setState({ passwordInput: e.target.value });
   };
 
+
+ handleLogin = async(e)=>{
+  e.preventDefault()
+
+
+}
+
+
+
+
   render() {
-    console.log(this.props.user);
     return (
       <div id="CCLogin">
         {/* {this.state.emailInput ? (<CCSidebar/>) : (<CCLogin/>)} */}
@@ -81,7 +63,7 @@ export default class CCLogin extends Component {
                 onChange={this.getPassword}
               ></input>
             </form>
-            <button type="submit" onClick={this.btnLogin}>Next</button>
+            <button type="button" onClick={this.handleLogin}>Next</button>
           </div>
         </div>
         <div className="loginDivChild">
@@ -91,3 +73,6 @@ export default class CCLogin extends Component {
     );
   }
 }
+
+
+export default withRouter(CCLogin)

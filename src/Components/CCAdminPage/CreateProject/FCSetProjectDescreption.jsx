@@ -57,7 +57,7 @@ const manageProjectNameErrorMessage = (e)=>{
           type="date"
           fullWidth
           value={props.newProject.deadline}
-          onChange={e => console.log(e.target.value)}
+          onChange={e => props.manageNewProject((prevState) => ({...prevState,deadline:e.target.value}))}
         />
       </Grid>
       

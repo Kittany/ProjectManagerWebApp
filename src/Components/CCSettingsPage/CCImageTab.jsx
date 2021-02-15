@@ -9,7 +9,7 @@ export default class CCImageTab extends Component {
                 <div id="CCImageTabChild">
                  <h5 style={{fontFamily:"poppins", fontWeight:"bold", textAlign:"center",color:"white",marginTop:"1%", width:"100%",height:"5%", margin:"0"}}>Please select an image</h5>
                 <div id="imagesContainer">
-                <div>
+                <div> 
                 <img name="1" onClick={e => this.props.selectImage(e)} src="Avatars/1.svg" width={this.props.imageSelected == 1? "15%":"10%"} height="10%" alt=""/>
                 <img name="2" onClick={e => this.props.selectImage(e)} src="Avatars/2.svg" width={this.props.imageSelected == 2? "15%":"10%"} height="10%" alt=""/>
                 <img name="3" onClick={e => this.props.selectImage(e)} src="Avatars/3.svg" width={this.props.imageSelected == 3? "15%":"10%"} height="10%" alt=""/>
@@ -25,7 +25,7 @@ export default class CCImageTab extends Component {
                 </div>
                 <div>
                 <img  name="11" onClick={e => this.props.selectImage(e)} src="Avatars/11.svg" width={this.props.imageSelected == 11? "15%":"10%"} height="10%" alt=""/>
-                <img  name="12" onClick={e => this.props.selectImage(e)} src="Avatars/12.svg" width={this.props.imageSelected == 12? "15%":"10%"} height="10%" alt=""/>
+                <img  name="12" onClick={e => this.props.selectImage(e)} src={'Avatars/12.svg'} width={this.props.imageSelected == 12? "15%":"10%"} height="10%" alt=""/>
                 <img name="13" onClick={e => this.props.selectImage(e)} src="Avatars/13.svg" width={this.props.imageSelected == 13? "15%":"10%"} height="10%" alt=""/>
                 <img name="14" onClick={e => this.props.selectImage(e)} src="Avatars/14.svg" width={this.props.imageSelected == 14? "15%":"10%"} height="10%" alt=""/>
                 <img name="15" onClick={e => this.props.selectImage(e)} src="Avatars/15.svg" width={this.props.imageSelected == 15? "15%":"10%"} height="10%" alt=""/>

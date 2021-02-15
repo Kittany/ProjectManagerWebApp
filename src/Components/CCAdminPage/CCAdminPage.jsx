@@ -164,7 +164,6 @@ updateProjectData = (eventOrValue,action) =>{
 
 
     render() {
-        console.log(this.state.allUsers);
         return (
             <div id="CCAdminPage">
                 {this.state.createAccountIsOpen && <FCCreateAccount closeCreateAccountWindow={this.closeCreateAccountWindow} updateProjectData={this.updateProjectData}/>}

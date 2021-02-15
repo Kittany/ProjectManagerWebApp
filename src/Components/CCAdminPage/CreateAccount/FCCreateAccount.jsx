@@ -1,19 +1,17 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import FCAccountSecuritySetup from './FCAccountSecuritySetup';
 import CCAccountLocationSetup from './FCAccountLocationSetup';
 import CCAccountAvatarSetup from './CCAccountAvatarSetup';
 import { Alert, AlertTitle } from '@material-ui/lab';
+
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -60,9 +58,12 @@ export default function FCCreateAccount(props) {
   const [activeStep, setActiveStep] = React.useState(0);
   
   //Account Creation
+
   const [newAccount,setNewAccount] = React.useState({username:"",firstName:"",lastName:"",email:"",password:"",avatar:"1",role:"Fullstack",isAdmin:false,state:"Afghanistan",address:"",projects:[],notes:[]})
   const [childComponentInput,setChildComponentInput] = React.useState({email:"",confirmEmail:"",password:"",confirmPassword:"",errorMessage:""})
   const [passedAdminTest,setPassedAdminTest] = React.useState(false);
+  
+  
   let secretCode = "create should have an extra e, createe" //ha, it's not a secret anymore
 
 
