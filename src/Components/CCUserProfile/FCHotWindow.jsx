@@ -1,8 +1,11 @@
 import React from "react";
 import { Button } from "@material-ui/core";
 import '../../Styles/CCUserProfile.css'
+import User from '../../Objects/User'
 
 export default function FCHotWindow(props) {
+
+  let user = User.getCurrentUser()
   return (
       <div id="FCHotWindow">
         <img
@@ -11,9 +14,9 @@ export default function FCHotWindow(props) {
           alt=""
         ></img>
         <div id="userDetails">
-          <h2 id="username">{props.userName}</h2>
-          <p id="userRole">Full Stack Developer</p>
-          <p>Country, <span>Address</span></p>
+        <h2 id="username">{user.username}</h2>
+          <p id="userRole">{user.role}</p>
+          <p>{user.state}, <span> {user.address}</span></p>
           <Button id="btnMessage" variant="contained" color="primary" disableElevation>
             Message
           </Button>

@@ -1,11 +1,12 @@
 import React, { Component, useRef } from 'react'
 import { makeStyles } from "@material-ui/core/styles";
 import CCChatGUISecondChild from "./CCChatGUI";
+import User from '../../Objects/User'
 export default class CCUsersChatList extends Component {
   constructor(props){
     super(props);
     this.state={
-      users:["3bbod","ahmad","fofo","koko","momo"],
+      users: User.getAllUsersInDatabase(),
       searchNameInput: ""
     }
   }
@@ -50,10 +51,10 @@ export default class CCUsersChatList extends Component {
           />
         </div>
         <div id="CCUsersChatListContainer" style={{overflowY:"scroll",display:"block"}}>
-          {this.state.users.filter(user => user.toLowerCase().substring(0, this.state.searchNameInput.length) == this.state.searchNameInput).map(user => 
+          {this.state.users.filter(user => user.username.toLowerCase().substring(0, this.state.searchNameInput.length) == this.state.searchNameInput).map(user => 
             <div className="ChatContainer darker" style={{ cursor: "pointer"}} handleScroll={this.ScrollDown()}>
               <img style={{ width: "15%" }} name="1" src="https://i.postimg.cc/SKvzkdJS/050-woman.png" width="10%" height="10%" alt="" />
-              <h3>{user} <span style={{ fontSize: "14px", color: "rgb(122, 151, 255)",fontWeight:"bold"}}>FullStack</span></h3>
+              <h3>{user.firstName} <span style={{ fontSize: "14px", color: "rgb(122, 151, 255)",fontWeight:"bold"}}>{user.role}</span></h3>
               
             </div>
           )}

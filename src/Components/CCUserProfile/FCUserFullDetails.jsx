@@ -7,7 +7,9 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import User from '../../Objects/User';
 
+let user = User.getCurrentUser();
 export default function FCUserFullDetails(props) {
   const useStyles = makeStyles({
     table: {
@@ -16,16 +18,7 @@ export default function FCUserFullDetails(props) {
   });
   const classes = useStyles();
   //Don't add the button to the database, make a loop that adds it to each object in the code
-  const user = {
-    firstName: "John",
-    lastName: "Doe",
-    email: "yolo@squad.com",
-    role: "programmer",
-    country: "earth",
-    address: "no where",
-    state:"Hifa",
-    zip:"3010000"
-  };
+   
   return (
     <div id="FCUserFullDetails">
       <TableContainer component={Paper}>
@@ -34,7 +27,7 @@ export default function FCUserFullDetails(props) {
             <TableCell align="center" style={{ fontWeight: "bold" }}>
               First Name
             </TableCell>
-            <TableCell align="center">{props.userName}</TableCell>
+            <TableCell align="center">{user.firstName}</TableCell>
           </TableHead>
           <TableHead>
             <TableCell align="center" style={{ fontWeight: "bold" }}>
@@ -52,7 +45,7 @@ export default function FCUserFullDetails(props) {
             <TableCell align="center" style={{ fontWeight: "bold" }}>
               Country
             </TableCell>
-            <TableCell align="center">{user.country}</TableCell>
+            <TableCell align="center">{user.state}</TableCell>
           </TableHead>
           <TableHead>
             <TableCell align="center" style={{ fontWeight: "bold" }}>
