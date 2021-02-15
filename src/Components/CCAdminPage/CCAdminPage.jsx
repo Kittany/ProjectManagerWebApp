@@ -7,6 +7,7 @@ import FCProjectsAdmin from './FCProjectsAdmin.jsx'
 import FCCreateAccount from './CreateAccount/FCCreateAccount.jsx'
 import FCCreateProject from './CreateProject/FCCreateProject.jsx'
 import FCManageProject from '../CCManageProject/FCManageProject.jsx'
+import { Bar, Line, Pie } from 'react-chartjs-2';
 
 export default class CCAdminPage extends Component {
   constructor(props){
@@ -26,7 +27,20 @@ export default class CCAdminPage extends Component {
             {name:"Youtube",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"meow"}],tasks:["task1"],notes:["note1"],descreption:"bla bla bla",status:false},
             {name:"Google",openDate:"2020-05-30",deadline:"2021-10-20",users:[{username:"3bbod"},{username:"lolo"}],tasks:["task"],notes:["note5"],descreption:"bla bla bla",status:false}
           ] ,// change to all the projects available on the database
+          chartData: {
+              labels: ['Skype', 'Google', 'Youtube'], // change this to user project array from DB
+              datasets: [
+                  {
+                      label: "",
+                      data: [
+                      ],
+                      backgroundColor: [
+                          'green',
 
+                      ]
+                  }
+              ]
+            },
           allUsers:[]
       }
   }
@@ -34,8 +48,27 @@ export default class CCAdminPage extends Component {
 
 //Switches between users tab & project management
 btnChangeTabs = (bool) =>{
-    if (bool)
+    if (bool){
     this.setState({tabOpened:"ManageProjects"})
+
+        const allProjectsName = this.state.allProjects.map((project) => project.name)
+        const allProjectStatus = this.state.allProjects.map((project) => project.status)
+        const projectStatusColor = allProjectStatus.map((status) => status == true ? 'green' : 'black')
+        console.log(allProjectsName);
+        console.log(allProjectStatus);
+        this.setState(prevState => ({
+            chartData: {
+                labels: allProjectsName, // change this to user project array from DB
+                datasets: [
+                    {
+                        label: "Projects",
+                        data: allProjectStatus,
+                        backgroundColor: projectStatusColor
+                    }
+                ]
+            }
+        }))
+    }
 
     else 
     this.setState({tabOpened:"Users"})
@@ -178,7 +211,14 @@ updateProjectData = (eventOrValue,action) =>{
                 <div id="CCAdminPageSecondChild">
                     {this.state.tabOpened === "Users"?<CCUsers users={this.props.users}/>:
                     <div id="ManageProjectsTab">
-                        <div id="adminStatics">Static diagram should be here</div>
+                        <div id="adminStatics">
+                                <Bar
+                                    data={this.state.chartData}
+                                    width={100}
+                                    height={50}
+                                    options={{ maintainAspectRatio: false }}
+                                />
+                        </div>
                         <FCProjectsAdmin allProjects={this.state.allProjects} openProjectManageWindow={this.openProjectManageWindow}/>
                         </div>}
                 </div>
