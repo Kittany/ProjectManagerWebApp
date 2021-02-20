@@ -33,11 +33,7 @@ class Project{
         await projects.forEach(project => project.action = "")
         projects = projects.filter(project => project.name.toLowerCase() !== specificProject.name.toLowerCase())
         projects = [...projects,specificProject]
-
-        console.log(projects);
-        let item = JSON.stringify(projects)
-        
-        // localStorage.setItem('projects',JSON.stringify(projects))
+        localStorage.setItem('projects',JSON.stringify(projects))
 
             
     

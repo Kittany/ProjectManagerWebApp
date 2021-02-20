@@ -15,7 +15,7 @@ export default class CCAdminPage extends Component {
   constructor(props){
 
       super(props);
-      let projects = JSON.parse(localStorage.getItem('projects'))
+      let projects = Project.getAllProjectsInDatabase()
       this.state = {
           tabOpened:"Users",
           manageProjectIsOpen:false,
@@ -82,7 +82,10 @@ closeProjectManageWindow = (event) =>{
         if (event.target.id === "FCManageProject")
         this.setState({manageProjectIsOpen: false})
        
-        this.setState(prevState => ({projectManagingAtTheMoment: {...prevState.projectManagingAtTheMoment,  action: ''}}),()=> Project.updateProject(this.state.projectManagingAtTheMoment))
+        this.setState(prevState => ({projectManagingAtTheMoment: {...prevState.projectManagingAtTheMoment,  action: ''}}),
+        ()=> 
+            Project.updateProject(this.state.projectManagingAtTheMoment)    
+        )
         
         
         
