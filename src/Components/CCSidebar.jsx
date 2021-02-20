@@ -41,7 +41,7 @@ this.props.history.push('/')
             <a>My Projects</a>
           </li>
           <li onClick={e => this.changeSelected("/projectmanager/administrator")} className={this.state.selected === "/projectmanager/administrator"?"active":null}>  
-            {true?<a style={{color:'goldenrod'}}>Project Management</a> : null} {/*if the user is an admin render it*/}
+            {User.getCurrentUser().isAdmin?<a style={{color:'goldenrod'}}>Project Management</a> : null} {/*if the user is an admin render it*/}
           </li>
           <li onClick={e => this.changeSelected("/projectmanager/chat")} className={this.state.selected === "/projectmanager/chat"?"active":null}>
             <a>Chat</a>

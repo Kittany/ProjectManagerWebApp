@@ -1,12 +1,17 @@
 class Project{
 
-    async Create(value)
+    async Create(newProject)
     {
-    let projects = await JSON.parse(localStorage.getItem('projects'))
-    await projects.push(value)
-    console.log(projects);
 
-    localStorage.setItem('projects',JSON.stringify(projects))
+    let projects = await JSON.parse(localStorage.getItem('projects'))
+
+    if (projects.some(project => project.name === newProject.name))
+        return;
+
+
+    await projects.push(newProject)
+    await localStorage.setItem('projects',JSON.stringify(projects))
+
     }
     
     
@@ -22,22 +27,21 @@ class Project{
     getProject = (projectName) => JSON.parse(localStorage.getItem('projects')).filter(project => project.name === projectName).length === 0? null : JSON.parse(localStorage.getItem('projects')).filter(project => project.name === projectName)[0] 
     
     
-    updateProject(specificProject)
+    async updateProject(specificProject)
     {
-        let projects = JSON.parse(localStorage.getItem('projects'))
+        let projects = this.getAllProjectsInDatabase()
+        await projects.forEach(project => project.action = "")
+        projects = projects.filter(project => project.name.toLowerCase() !== specificProject.name.toLowerCase())
+        projects = [...projects,specificProject]
+
+        console.log(projects);
+        let item = JSON.stringify(projects)
+        
+        // localStorage.setItem('projects',JSON.stringify(projects))
+
+            
     
-       if (projects.filter(project => project.name === specificProject.name).length !== 0)
-        {
-            projects = projects.filter(project => project.name !== specificProject.name)
-            projects.push(specificProject)
-            localStorage.setItem('projects',JSON.stringify(projects))
-        }
-    
-        else
-            console.log('You tried to update a project that does not exist!')
-    
-       
-         
+ 
     }
     
     }

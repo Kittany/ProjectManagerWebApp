@@ -78,14 +78,16 @@ openProjectManageWindow = (project) =>{ this.setState({manageProjectIsOpen:true,
 //closes the project management window
 closeProjectManageWindow = (event) =>{
     
+
         if (event.target.id === "FCManageProject")
         this.setState({manageProjectIsOpen: false})
-
-        //Update project
-        Project.updateProject(this.state.projectManagingAtTheMoment)
+       
+        this.setState(prevState => ({projectManagingAtTheMoment: {...prevState.projectManagingAtTheMoment,  action: ''}}),()=> Project.updateProject(this.state.projectManagingAtTheMoment))
+        
+        
         
 
-
+        
 
 }
     
@@ -146,27 +148,16 @@ updateProjectData = (eventOrValue,action) =>{
     else if (action === "CreateProject")
     {
             Project.Create(eventOrValue)
-            this.forceUpdate()
             this.closeCreateProjectWindow("CreateProject")
-            setTimeout(() => {
-                alert('User has been sucessfully created!')
-            }, 1000);
-    
-            
-            
+ 
     }
 
     else if (action === "CreateAccount")
     {
 
             User.Create(eventOrValue)
-             
             this.closeCreateAccountWindow("CreateAccount")
-            this.forceUpdate()
-            setTimeout(() => {
-                alert('User has been sucessfully created!')
-            }, 1000);
-            
+
     }
         
 
@@ -211,6 +202,7 @@ updateProjectData = (eventOrValue,action) =>{
 
 
     render() {
+
         return (
             <div id="CCAdminPage">
                 {this.state.createAccountIsOpen && <FCCreateAccount closeCreateAccountWindow={this.closeCreateAccountWindow} updateProjectData={this.updateProjectData}/>}

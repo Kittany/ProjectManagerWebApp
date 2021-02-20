@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
 import '../../Styles/CCManageProject.css'
 import FCSmallUser from './FCSmallUser.jsx'
-
+import User from '../../Objects/User'
 
 export default class CCManageMembersInProject extends Component {
     constructor(props)
     {
-         
+         let users = User.getAllUsersInDatabase()
       
         
         super(props);
         this.state = {
             filter:"",
-            /*remove this and use users in database using a method*/
-            users: [{username:"meow",role:"Backend",avatar:"2"},{username:"lolo",role:"Designer",avatar:"3"},{username:"3bbod",role:"Fullstack",avatar:"20"}]
+            users: users
 
         }
     
