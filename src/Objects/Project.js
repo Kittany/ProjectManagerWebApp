@@ -3,11 +3,13 @@ class Project{
     async Create(newProject)
     {
 
+    if (this.getAllProjectsInDatabase() == null)
+    return;
+
     let projects = await JSON.parse(localStorage.getItem('projects'))
 
     if (projects.some(project => project.name === newProject.name))
         return;
-
 
     await projects.push(newProject)
     await localStorage.setItem('projects',JSON.stringify(projects))
@@ -15,11 +17,16 @@ class Project{
     }
     
     
-    Remove(projectName)
+    async Remove(projectName)
     {
-    let projects = JSON.parse(localStorage.getItem('projects'))
-    projects = projects.filter(project => project.name.toLowerCase() !== projectName.toLowerCase())
-    localStorage.setItem('projects',JSON.stringify(projects))
+
+    if (this.getAllProjectsInDatabase() == null)
+    return;
+        
+
+    let projects = await JSON.parse(localStorage.getItem('projects'))
+    projects = await projects.filter(project => project.name.toLowerCase() !== projectName.toLowerCase())
+    await localStorage.setItem('projects',JSON.stringify(projects))
     }
     
     
@@ -29,15 +36,18 @@ class Project{
     
     async updateProject(specificProject)
     {
-        let projects = this.getAllProjectsInDatabase()
+
+        if (this.getAllProjectsInDatabase() == null)
+        return;
+        
+
+        let projects = await this.getAllProjectsInDatabase()
         await projects.forEach(project => project.action = "")
-        projects = projects.filter(project => project.name.toLowerCase() !== specificProject.name.toLowerCase())
+        projects = await projects.filter(project => project.name.toLowerCase() !== specificProject.name.toLowerCase())
         projects = [...projects,specificProject]
-        localStorage.setItem('projects',JSON.stringify(projects))
+        await localStorage.setItem('projects',JSON.stringify(projects))
 
             
-    
- 
     }
     
     }

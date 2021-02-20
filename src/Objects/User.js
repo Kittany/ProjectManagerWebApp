@@ -2,6 +2,10 @@ class User{
 
 Create(newUser)
 {
+
+if (this.getAllUsersInDatabase() == null)
+    return;
+
 let users = this.getAllUsersInDatabase()
 users = [...users,newUser]
 localStorage.setItem('users',JSON.stringify(users))
@@ -10,6 +14,10 @@ localStorage.setItem('users',JSON.stringify(users))
 
 Remove(username)
 {
+
+if (this.getAllUsersInDatabase() == null)
+return;
+
 let users = this.getAllUsersInDatabase()
 users = users.filter(user => user.username.toLowerCase() !== username.toLowerCase())
 localStorage.setItem('users',JSON.stringify(users))
@@ -17,6 +25,10 @@ localStorage.setItem('users',JSON.stringify(users))
 
 signIn(username,password)
 { 
+
+if (this.getAllUsersInDatabase() == null)
+return;
+
     let users = this.getAllUsersInDatabase()
     if (users.some(user=> user.username.toLowerCase() === username.toLowerCase() && user.password === password))
     {
@@ -44,6 +56,11 @@ getSpecificUser = (username) => JSON.parse(localStorage.getItem('users')).filter
 
 updateUser(specificUser)
 {
+
+    if (this.getAllUsersInDatabase() == null)
+    return;
+
+    
     let users = this.getAllUsersInDatabase()
 
     if (this.getCurrentUser().username === specificUser.username)
